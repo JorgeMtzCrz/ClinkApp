@@ -8,10 +8,9 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
+const passport = require("./config/passport");
 const session = require("express-session");
-const connectM = require("connect-mongo")(session);
-const passport = require("./middlewares/passport");
-const flash = require("connect-flash");
+
 mongoose
   .connect("mongodb://localhost/project2-a", {
     useNewUrlParser: true
@@ -77,5 +76,6 @@ app.locals.title = "Clink!";
 app.use("/auth", require("./routes/authRoutes"));
 const index = require("./routes/index");
 app.use("/", index);
+app.use("/auth", require("./routes/authRoutes"));
 
 module.exports = app;
