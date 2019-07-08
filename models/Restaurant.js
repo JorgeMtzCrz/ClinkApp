@@ -30,5 +30,5 @@ const restaurantSchema = new Schema(
     versionKey: false
   }
 );
-
+//HOLA CRIS
 module.exports = model("User", UserSchema);
