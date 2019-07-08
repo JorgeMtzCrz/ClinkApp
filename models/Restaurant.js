@@ -5,7 +5,6 @@ const restaurantSchema = new Schema(
     name: String,
     giro: {
       type: String,
-      require,
       enum: ["Restaurant", "Bar", "Antro", "Cantina"],
       default: "Restaurant"
     },
@@ -31,4 +30,4 @@ const restaurantSchema = new Schema(
   }
 );
 //HOLA CRIS
-module.exports = model("User", UserSchema);
+module.exports = model("Restaurant", restaurantSchema);
