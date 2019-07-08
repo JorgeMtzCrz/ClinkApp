@@ -11,10 +11,12 @@ const drinkSchema = new Schema({
     restaurantId: {
         type: Schema.Types.ObjectId,
         ref: "Restaurant"
-    }
+    },
     imgPath: String,
     imgName: String,
 }, {
     timestamps: true,
     versionKey: false
 })
+
+module.exports = model('Drink', drinkSchema)
