@@ -1,26 +1,27 @@
-const {
-    model,
-    Schema
-} = require('mongoose')
+const { model, Schema } = require("mongoose");
 
-const restaurantSchema = new Schema({
+const restaurantSchema = new Schema(
+  {
     name: String,
     giro: {
-        type: String require,
-        enum: ['Restaurant', 'Bar', 'Antro', 'Cantina'],
-        default: 'Restaurant'
+      type: String,
+      require,
+      enum: ["Restaurant", "Bar", "Antro", "Cantina"],
+      default: "Restaurant"
     },
     averagePrice: Number,
     creatorId: {
-        type: Schema.Types.ObjectId,
-        ref: "User"
-    }
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    },
     imgPath: String,
     imgName: String,
-    calification: [type: String]
-}, {
+    calification: [String]
+  },
+  {
     timestamps: true,
     versionKey: false
-})
+  }
+);
 
-module.exports = model('User', UserSchema)
+module.exports = model("User", UserSchema);
