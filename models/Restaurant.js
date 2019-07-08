@@ -19,6 +19,7 @@ const restaurantSchema = new Schema({
     imgPath: String,
     imgName: String,
     calification: String,
+
 }, {
     timestamps: true,
     versionKey: false
