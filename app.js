@@ -28,7 +28,7 @@ const app = express();
 
 app.use(
     session({
-        secret: 's3cr3t',
+        secret: 's3cr3t0',
         cookie: {
             httpOnly: true,
             maxAge: 1000 * 60 * 60
