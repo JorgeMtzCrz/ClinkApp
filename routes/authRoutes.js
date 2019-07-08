@@ -1,0 +1,10 @@
+const express = require("express");
+const passport = require("passport");
+const router = express.Router();
+const {} = require();
+router.get("/signup");
+router.post("/signup");
+router.get("/login");
+router.post("/login");
+router.get("/logout");
+router.get("/profile");
