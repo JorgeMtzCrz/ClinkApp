@@ -18,3 +18,5 @@ const drinkSchema = new Schema({
     timestamps: true,
     versionKey: false
 })
+
+module.exports = model('Drink', drinkSchema)

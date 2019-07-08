@@ -6,7 +6,7 @@ const {
 const restaurantSchema = new Schema({
         name: String,
         giro: {
-            type: String require,
+            type: String,
             enum: ['Restaurant', 'Bar', 'Antro', 'Cantina'],
             default: 'Restaurant'
         },
@@ -21,7 +21,7 @@ const restaurantSchema = new Schema({
         creatorId: {
             type: Schema.Types.ObjectId,
             ref: "User"
-        }
+        },
         imgPath: String,
         imgName: String,
         calification: [Number]
@@ -31,4 +31,4 @@ const restaurantSchema = new Schema({
         versionKey: false
     })
     //HOLA CRIS
-module.exports = model('User', UserSchema)
+module.exports = model('Restaurant', restaurantSchema)
