@@ -5,10 +5,10 @@ const {
 const plm = require('passport-local-mongoose')
 
 const UserSchema = new Schema({
-    name: String require,
-    email: String require,
+    name: String, require=true,
+    email: String, require=true,
     role: {
-        type: String require,
+        type: String, require=true,
         enum: ['user', 'admin'],
         default: 'user'
     }
