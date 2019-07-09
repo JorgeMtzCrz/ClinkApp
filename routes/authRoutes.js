@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const router = Router();
-const passport = require("../middlewares/passport");
+const passport = require("../middlewares/auth");
 const {
   getSignup,
   postSignup,
