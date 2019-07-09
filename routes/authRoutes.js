@@ -1,32 +1,24 @@
-const { Router } = require("express");
-const router = Router();
-const passport = require("../middlewares/auth");
+const express = require("express");
+const passport2 = require("passport");
+const router = express.Router();
+const passport = require("../config/passport");
 const {
-  getSignup,
   postSignup,
+  getSignup,
+  getRestaurant,
   getLogin,
+  postLogin,
+  getProfile,
   logout
 } = require("../controllers/authControllers");
+const { isLoggedIn, isAuth } = require("../middlewares/auth");
 
 router.get("/signup", getSignup);
 router.post("/signup", postSignup);
-router.get("/login", getLogin);
-router.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/auth/login",
-    passReqToCallback: true,
-    failureFlash: true
-  })
-);
-
+router.get("/login", isLoggedIn, getLogin);
+router.post("/login", passport.authenticate("local"), postLogin);
 router.get("/logout", logout);
-router.get("/slack", passport.authenticate("slack"));
-router.get(
-  "/slack/callback",
-  passport.authenticate("slack", {
-    successRedirect: "/private-page",
-    failureRedirect: "/auth/login"
-  })
-);
+router.get(`/perfil`, isAuth, getProfile);
+router.get("/altares", isAuth, getRestaurant);
+
+module.exports = router;
