@@ -1,7 +1,8 @@
 const express = require("express");
-const passport = require("passport");
+const passport2 = require("passport");
 const router = express.Router();
 const {
+
     postSignup,
     getSignup,
     getRestaurant,
@@ -24,4 +25,5 @@ router.get("/logout", logout);
 router.get(`/perfil`, isAuth, getProfile);
 router.get("/altares", isAuth, getRestaurant)
 
-module.exports = router
+
+module.exports = router;
