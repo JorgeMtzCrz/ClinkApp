@@ -1,0 +1,58 @@
+<h1>¿De qué tienes ganas?</h1>
+
+<section id='fiesta'>
+  <h2>¿Cuánto quieres gastar?</h2>
+
+  <form action="/preguntas" method="get"></form>
+  <select name="Budget-fiesta" id="budget-fiesta">
+
+    <option value="1">$0-200</option>
+    <option value="2">$200-400</option>
+    <option value="3">$400-600</option>
+    <option value="4">$600-1000</option>
+  </select>
+
+
+  <select name="Type" id="type-drink">
+    <option value="vodka"> Con vodka</option>
+    <option value="whisky"> Con whisky</option>
+    <option value="tequila"> Con tequila</option>
+    <option value="cerveza"> Con cerveza</option>
+  </select>
+
+</section>
+
+<section id="coctel">
+  <h2>¿Qué tipo de coctel se te antoja?</h2>
+  <select name="Typedrink" id="type-drink">
+    <option value="vodka"> Con vodka</option>
+    <option value="whisky"> Con whisky</option>
+    <option value="tequila"> Con tequila</option>
+    <option value="cerveza"> Con cerveza</option>
+  </select>
+  <h3>¿Cuánto quieres gastar?</h3>
+  <select name="Budget-coctel" id="budget-coctel">
+    <option value="1">$0-200</option>
+    <option value="2">$200-400</option>
+    <option value="3">$400-600</option>
+    <option value="4">$600-1000</option>
+  </select>
+</section>
+
+<section id='acomp'>
+  <h2>¿Qué vas a comer?</h2>
+  <select name="Typefood" id="type-food">
+    <option value="brunch">Brunch</option>
+    <option value="comida">Comida</option>
+    <option value="cena">Cena</option>
+    <option value="postre">Postre</option>
+  </select>
+  <h3>¿Cuánto quieres gastar?</h3>
+  <select name="Budget-acomp" id="budget-acomp">
+    <option value="1">$0-200</option>
+    <option value="2">$200-400</option>
+    <option value="3">$400-600</option>
+    <option value="4">$600-1000</option>
+  </select>
+  <input type="submit" value="Enviar respuestas">
+</section>
