@@ -3,14 +3,15 @@ const {
     Schema
 } = require("mongoose");
 
+
 const restaurantSchema = new Schema({
     name: String,
     giro: {
-
         type: String,
         enum: ["Restaurant", "Bar", "Antro", "Cantina"],
         default: "Restaurant"
     },
+    averagePrice: String,
     location: {
         addres: {
             type: String,
@@ -18,13 +19,12 @@ const restaurantSchema = new Schema({
         },
         coordinates: [Number]
     },
-    averagePrice: String,
+    imgPath: String,
+    imgName: String,
     creatorId: {
         type: Schema.Types.ObjectId,
         ref: "User"
     },
-    imgPath: String,
-    imgName: String,
     calification: [Number]
 }, {
 
