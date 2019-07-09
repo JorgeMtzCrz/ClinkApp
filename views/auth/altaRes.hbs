@@ -1,6 +1,17 @@
+<head>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+
+  <script
+    src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet'
+    href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css'
+    type='text/css' />
+</head>
+
 <h2>Dar de alta un Restaurante</h2>
 
-<form action="/auth/createRest" method="POST" id="form-container">
+<form action="/auth/altares" method="POST" id="altares">
   <label for="name">Nombre</label>
   <input id="name" type="text" name="name">
 
@@ -16,7 +27,9 @@
   <br />
   <label for="averagePrice">Consumo promedio por persona</label>
   <input id="averagePrice" type='text' name="averagePrice" placeholder="Ingresa el consumo">
-  <br>
+  <br />
+  <div id='map' style='width: 400px; height: 300px;'></div>
+
   {{#if message }}
   <div class="error-message">{{ message }}</div>
   {{/if}}
@@ -29,4 +42,7 @@
     ¿Ya tienes tu cuenta?
     <a href="/auth/login">Login</a>
   </p>
+
+  <script src="/javascripts/mapbox.js"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
 </form>

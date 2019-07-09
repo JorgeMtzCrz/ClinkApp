@@ -1,6 +1,7 @@
 const express = require("express");
 const passport2 = require("passport");
 const router = express.Router();
+const passport = require('../config/passport')
 const {
 
     postSignup,
