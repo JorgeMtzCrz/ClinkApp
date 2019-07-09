@@ -27,4 +27,6 @@ router.get(`/perfil`, isAuth, getProfile);
 router.get("/altares", isAuth, getRestaurant)
 
 
+
+
 module.exports = router;
