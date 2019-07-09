@@ -1,11 +1,29 @@
 const User = require('../models/User')
 const Restaurant = require('../models/Restaurant')
+const passport = require('../config/passport')
 
 exports.getSignup = (req, res) => {
     res.render('auth/signup')
 }
-exports.postSignup = (req, res, next) => {
-    User.register({
+exports.postSignup = async(req, res, next) => {
+    const {
+        email,
+        password
+    } = req.body
+    const username = await User.findOne({
+        email
+    })
+    if (username === '' || password === '') {
+        return res.render('auth/signup', {
+            message: 'email of password empty'
+        })
+    }
+    if (username !== null) {
+        return res.render('auth/signup', {
+            message: 'the username already exists'
+        })
+    }
+    await User.register({
             ...req.body,
             role: 'user'
         }, req.body.password)
@@ -20,18 +38,47 @@ exports.postSignup = (req, res, next) => {
 exports.getLogin = (req, res) => {
     res.render('auth/login')
 }
-exports.postLogin = (req, res) => {
-    res.redirect('perfil')
+exports.postLogin = (req, res, next) => {
+    passport.authenticate('local', (err, user, info) => {
+        if (err) return res.send(info)
+        req.login(user, err => {
+            if (err) return res.send('Fallo', err)
+            req.app.locals.user = user
+            if (user.role === 'admin') return res.redirect('/admin')
+            else return res.redirect('perfil')
+        })
+    })(req, res, next)
 }
 
 exports.getRestaurant = (req, res) => {
-    res.render('auth/altaRes')
+    console.log(req.app.locals._id)
+    res.render('auth/altares')
 }
-exports.getProfile = (req, res) => {
-    res.render('auth/perfil')
-}
+
 exports.postRestaurant = (req, res, next) => {
-    Restaurant.register({
-        ...req.body,
-    })
+    // req.app.locals._id = id
+    // console.log(id)
+    // Restaurant.register({
+    //     ...req.body,
+    // })
+    // passport.authenticate('local', (err, user, info) => {
+    //     if (err) return res.send(info)
+    //     req.login(user, err => {
+    //         if (err) return res.send('Fallo', err)
+    //         req.app.locals.user = user
+    //         console.log(user)
+    //         if (user.role === 'admin') return res.redirect('/admin')
+    //         else return res.redirect('perfil')
+    //     })
+    // })(req, res, next)
+}
+
+exports.logout = (req, res) => {
+    req.logout()
+    res.redirect('/')
+}
+
+exports.getProfile = (req, res) => {
+
+    res.render(`auth/perfil`)
 }
