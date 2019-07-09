@@ -20,4 +20,14 @@ a {
 .ec-stars-wrapper:hover a {
   color: #2782e4; }
 
+#fiesta-form,
+#coctel-form,
+#acomp-form {
+  display: none; }
+
+#fiesta,
+#acomp,
+#coctel {
+  text-align: center; }
+
 /*# sourceMappingURL=style.css.map */

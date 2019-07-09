@@ -24,3 +24,15 @@ a {
 .ec-stars-wrapper:hover a {
   color: rgb(39, 130, 228);
 }
+
+#fiesta-form,
+#coctel-form,
+#acomp-form {
+  display: none;
+}
+
+#fiesta,
+#acomp,
+#coctel {
+  text-align: center;
+}
