@@ -2,6 +2,8 @@ const express = require("express");
 const passport2 = require("passport");
 const router = express.Router();
 const passport = require('../config/passport')
+const uploadCloud = require('../config/cloudinary')
+
 const {
 
     postSignup,
@@ -10,7 +12,8 @@ const {
     getLogin,
     postLogin,
     getProfile,
-    logout
+    logout,
+    postRestaurant
 } = require('../controllers/authControllers')
 const {
     isLoggedIn,
@@ -25,6 +28,7 @@ router.post("/login", passport.authenticate('local'), postLogin);
 router.get("/logout", logout);
 router.get(`/perfil`, isAuth, getProfile);
 router.get("/altares", isAuth, getRestaurant)
+router.post("/altares", isAuth, uploadCloud.single('photo'), postRestaurant)
 
 
 

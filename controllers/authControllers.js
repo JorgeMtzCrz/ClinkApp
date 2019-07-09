@@ -1,5 +1,6 @@
 const User = require('../models/User')
 const Restaurant = require('../models/Restaurant')
+
 const passport = require('../config/passport')
 
 exports.getSignup = (req, res) => {
@@ -56,21 +57,52 @@ exports.getRestaurant = (req, res) => {
 }
 
 exports.postRestaurant = (req, res, next) => {
-    // req.app.locals._id = id
-    // console.log(id)
-    // Restaurant.register({
-    //     ...req.body,
-    // })
-    // passport.authenticate('local', (err, user, info) => {
-    //     if (err) return res.send(info)
-    //     req.login(user, err => {
-    //         if (err) return res.send('Fallo', err)
-    //         req.app.locals.user = user
-    //         console.log(user)
-    //         if (user.role === 'admin') return res.redirect('/admin')
-    //         else return res.redirect('perfil')
-    //     })
-    // })(req, res, next)
+
+    const {
+        name,
+        giro,
+        averagePrice,
+        lat,
+        lng
+    } = req.body
+    const location = {
+        coordinates: [lat, lng]
+    }
+
+    console.log(req.body)
+    const n = {
+        ...location,
+        coordinates: [Number(location.coordinates[0]), Number(location.coordinates[1])]
+    }
+    const {
+        url: imgPath,
+        originalname: imgName
+    } = req.file
+    Restaurant.create({
+            name,
+            giro,
+            averagePrice,
+            n,
+            imgPath,
+            imgName
+        })
+        .then(restaurant => res.redirect(`perfil`))
+        .catch(err => next(err))
+        // req.app.locals._id = id
+        // console.log(id)
+        // Restaurant.register({
+        //     ...req.body,
+        // })
+        // passport.authenticate('local', (err, user, info) => {
+        //     if (err) return res.send(info)
+        //     req.login(user, err => {
+        //         if (err) return res.send('Fallo', err)
+        //         req.app.locals.user = user
+        //         console.log(user)
+        //         if (user.role === 'admin') return res.redirect('/admin')
+        //         else return res.redirect('perfil')
+        //     })
+        // })(req, res, next)
 }
 
 exports.logout = (req, res) => {
