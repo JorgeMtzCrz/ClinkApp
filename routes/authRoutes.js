@@ -24,7 +24,7 @@ const {
 router.get("/signup", getSignup);
 router.post("/signup", postSignup);
 router.get("/login", isLoggedIn, getLogin);
-router.post("/login", passport.authenticate('local'), postLogin);
+router.post("/login", passport.authenticate("local"), postLogin);
 router.get("/logout", logout);
 router.get(`/perfil`, isAuth, getProfile);
 router.get("/altares", isAuth, getRestaurant)

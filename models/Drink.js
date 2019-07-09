@@ -10,6 +10,10 @@ const drinkSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Restaurant"
     },
+    alcohol: {
+      type: String,
+      enum: ["vodka", "cerveza", "tequila", "whisky"]
+    },
     imgPath: String,
     imgName: String
   },

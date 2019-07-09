@@ -3,6 +3,7 @@ const {
     Schema
 } = require("mongoose");
 
+
 const restaurantSchema = new Schema({
     name: String,
     giro: {
@@ -24,7 +25,7 @@ const restaurantSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     },
-    // calification: [Number]
+    calification: [Number]
 }, {
 
     timestamps: true,

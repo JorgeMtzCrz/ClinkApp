@@ -57,7 +57,6 @@ exports.getRestaurant = (req, res) => {
 }
 
 exports.postRestaurant = (req, res, next) => {
-
     const {
         name,
         giro,
@@ -69,7 +68,7 @@ exports.postRestaurant = (req, res, next) => {
         coordinates: [lat, lng]
     }
 
-    console.log(req.body)
+
     const n = {
         ...location,
         coordinates: [Number(location.coordinates[0]), Number(location.coordinates[1])]
@@ -78,31 +77,18 @@ exports.postRestaurant = (req, res, next) => {
         url: imgPath,
         originalname: imgName
     } = req.file
+    const id = req.user._id
     Restaurant.create({
             name,
             giro,
             averagePrice,
             n,
             imgPath,
-            imgName
+            imgName,
+            creatorId: id,
         })
         .then(restaurant => res.redirect(`perfil`))
         .catch(err => next(err))
-        // req.app.locals._id = id
-        // console.log(id)
-        // Restaurant.register({
-        //     ...req.body,
-        // })
-        // passport.authenticate('local', (err, user, info) => {
-        //     if (err) return res.send(info)
-        //     req.login(user, err => {
-        //         if (err) return res.send('Fallo', err)
-        //         req.app.locals.user = user
-        //         console.log(user)
-        //         if (user.role === 'admin') return res.redirect('/admin')
-        //         else return res.redirect('perfil')
-        //     })
-        // })(req, res, next)
 }
 
 exports.logout = (req, res) => {
@@ -110,7 +96,20 @@ exports.logout = (req, res) => {
     res.redirect('/')
 }
 
-exports.getProfile = (req, res) => {
+exports.getProfile = async(req, res, next) => {
+    const id = req.user._id
+    const restaurants = await Restaurant.find({
+            $and: [{
+                "creatorId": {
+                    $eq: id
+                }
+            }]
 
-    res.render(`auth/perfil`)
+        })
+        .then(restaurants => {
+            res.render(`auth/perfil`, {
+                restaurants
+            })
+        })
+
 }

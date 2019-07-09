@@ -1,7 +1,20 @@
 <h2>¿Qué vas a comer?</h2>
 
 
-<a href="/acomp-last">Brunch</a>
-<a href="/acomp-last">Comida</a>
-<a href="/acomp-last">Cena</a>
-<a href="/acomp-last">Postre</a>
+<form action="/acomp-last" method="post">
+
+
+  <select name="foodType" id="type">
+    <option value="brunch">Brunch</option>
+    <option value="comida">Comida</option>
+    <option value="cena">Cena</option>
+    <option value="postre">Postre</option>
+  </select>
+  <select name="Budget-acomp" id="budget-acomp">
+    <option value="1">$0-200</option>
+    <option value="2">$200-400</option>
+    <option value="3">$400-600</option>
+    <option value="4">$600-1000</option>
+  </select>
+
+</form>
