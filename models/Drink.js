@@ -1,22 +1,22 @@
-const {
-    model,
-    Schema
-} = require('mongoose')
-const plm = require('passport-local-mongoose')
+const { model, Schema } = require("mongoose");
+const plm = require("passport-local-mongoose");
 
-const drinkSchema = new Schema({
+const drinkSchema = new Schema(
+  {
     name: String,
     price: Number,
     description: String,
     restaurantId: {
-        type: Schema.Types.ObjectId,
-        ref: "Restaurant"
-    }
+      type: Schema.Types.ObjectId,
+      ref: "Restaurant"
+    },
     imgPath: String,
-    imgName: String,
-}, {
+    imgName: String
+  },
+  {
     timestamps: true,
     versionKey: false
-})
+  }
+);
 
-module.exports = model('Drink', drinkSchema)
+module.exports = model("Drink", drinkSchema);
