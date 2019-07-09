@@ -1,22 +1,28 @@
 <h2>Dar de alta un Restaurante</h2>
 
 <form action="/auth/createRest" method="POST" id="form-container">
-  <label for="name">Name</label>
+  <label for="name">Nombre</label>
   <input id="name" type="text" name="name">
 
   <br />
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
+  <h3>{{user._id}}</h3>
+  <label for="giro">Giro</label>
+  <select name="giro" id="giro">
+    <option value="Restaurant" selected>Restaurante</option>
+    <option value="Bar">Bar</option>
+    <option value="Antro">Antro</option>
+    <option value="Cantina">Cantina</option>
+  </select>
+  <br />
   <input id="email" type='email' name="email" placeholder="your Email">
   <br>
   {{#if message }}
   <div class="error-message">{{ message }}</div>
   {{/if}}
 
-  <br><br>
+  <br />
 
-  <button>Crea tu cuenta</button>
+  <button>Dar de alta</button>
 
   <p class="account-message">
     ¿Ya tienes tu cuenta?
