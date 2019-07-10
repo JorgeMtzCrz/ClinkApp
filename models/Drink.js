@@ -1,26 +1,25 @@
-const { model, Schema } = require("mongoose");
+const {
+    model,
+    Schema
+} = require("mongoose");
 const plm = require("passport-local-mongoose");
 
-const drinkSchema = new Schema(
-  {
+const drinkSchema = new Schema({
     name: String,
-    price: Number,
-    description: String,
-    restaurantId: {
-      type: Schema.Types.ObjectId,
-      ref: "Restaurant"
-    },
     alcohol: {
-      type: String,
-      enum: ["vodka", "cerveza", "tequila", "whisky"]
+        type: String,
+        enum: ["Vodka", "Cerveza", "Tequila", "Whisky", "Ron"]
     },
+    typeDrink: {
+        type: String,
+        enum: ["Cocktail", "Solo", "Mix"]
+    },
+    description: String,
     imgPath: String,
     imgName: String
-  },
-  {
+}, {
     timestamps: true,
     versionKey: false
-  }
-);
+});
 
 module.exports = model("Drink", drinkSchema);

@@ -5,7 +5,6 @@ const passport = require('../config/passport')
 const uploadCloud = require('../config/cloudinary')
 
 const {
-
     postSignup,
     getSignup,
     getRestaurant,
@@ -13,11 +12,16 @@ const {
     postLogin,
     getProfile,
     logout,
-    postRestaurant
+    postRestaurant,
+    getDrinks,
+    postDrink,
+    getOneRest
 } = require('../controllers/authControllers')
 const {
     isLoggedIn,
-    isAuth
+    isAuth,
+    isAdmin,
+    checkLoggedUser
 } = require('../middlewares/auth')
 
 
@@ -29,8 +33,9 @@ router.get("/logout", logout);
 router.get(`/perfil`, isAuth, getProfile);
 router.get("/altares", isAuth, getRestaurant)
 router.post("/altares", isAuth, uploadCloud.single('photo'), postRestaurant)
-
-
+router.get("/restaurant/:id", isAuth, getOneRest)
+router.get("/drinks", isAuth, isAdmin, getDrinks)
+router.post("/drinks", isAuth, isAdmin, uploadCloud.single('photo'), postDrink)
 
 
 module.exports = router;
