@@ -1,0 +1,36 @@
+<form action="/restaurant/{{restaurant._id}}/edit" method="POST">
+  <p><label for="name">Name</label>
+    <input type="text" name="name" placeholder="name" value="{{restaurant.name}}">
+  </p>
+  <p>
+    <label for="giro">Giro</label>
+    <select name="giro" id="tgiro">
+      <option value="" selected disabled>Choose one</option>
+      <option value="Restaurant">Restaurante</option>
+      <option value="Bar">Bar</option>
+      <option value="Antro">Antro</option>
+      <option value="Cantina">Cantina</option>
+    </select>
+  </p>
+  <p>
+    <label for="averagePrice">Consumo promedio por persona</label>
+    <input id="averagePrice" type='text' name="averagePrice" value="{{restaurant.averagePrice}}">
+  </p>
+  <p>
+    <label for="drinks">Bebidas en tu Restaurante</label>
+    <br />
+    {{#each restaurant.drinks as |drink|}}
+    {{drink.name}}
+    <a href="/auth/restaurant/{{../restaurant._id}}/drinks/{{this._id}}/delete">Delete</a>
+    {{/each}}
+  </p>
+  <p>
+    <label for="drinksadd">Bebidas que puedes agregar a tu carta</label>
+    <br />
+    {{#each drinks as |drink|}}
+    <input type="checkbox" name="drinks" value="{{drink._id}}">{{drink.name}}</input>
+    {{/each}}
+  </p>
+
+  <input type="submit" value="Guardar">
+</form>
