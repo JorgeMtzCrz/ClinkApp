@@ -1,15 +1,23 @@
 <h1>¿De qué tienes ganas?</h1>
 
-<div id="botones">
-  <h2 id="fiesta">Fiesta</h2>
-  <h2 id="coctel">Coctel</h2>
-  <h2 id='acomp'>Acompañamiento</h2>
+<div id="first-view">
+  <div id="fiesta">
+    <h2>Fiesta</h2>
+    <img src="../pictures/alcol.jpg" alt='fiesta'>
+  </div>
+  <div id="coctel">
+    <h2>Coctel</h2>
+    <img src="../pictures/drinks-png-hd-food-cocktails-and-more-1000.png" alt='coctel' />
+  </div>
+  <div id='acomp'>
+    <h2>Acompañamiento</h2>
+    <img src="../pictures/wine_PNG9463.png" alt='acomp'>
+  </div>
 </div>
 
 <form action="/resultados" method="get" id='fiesta-form'>
 
   <h3>¿Cuánto quieres gastar?</h3>
-
 
   <select name="Budget-fiesta">
 
@@ -18,7 +26,7 @@
     <option value="3">$400-600</option>
     <option value="4">$600-1000</option>
   </select>
-
+  <input type="submit" value="Enviar respuestas">
 </form>
 
 <form action="/resultados" method="get" id="coctel-form">
@@ -40,28 +48,28 @@
     <option value="3">$400-600</option>
     <option value="4">$600-1000</option>
   </select>
-
+  <input type="submit" value="Enviar respuestas">
 </form>
 
 <form action="/resultados" method="get" id='acomp-form'>
-  <section>
 
-    <select name="Typefood" id="type-food">
-      <h2>¿Qué vas a comer?</h2>
-      <option value="brunch">Brunch</option>
-      <option value="comida">Comida</option>
-      <option value="cena">Cena</option>
-      <option value="postre">Postre</option>
-    </select>
 
-    <select name="Budget-acomp" id="budget-acomp">
-      <h3>¿Cuánto quieres gastar?</h3>
-      <option value="1">$0-200</option>
-      <option value="2">$200-400</option>
-      <option value="3">$400-600</option>
-      <option value="4">$600-1000</option>
-    </select>
-    <input type="submit" value="Enviar respuestas">
-  </section>
+  <select name="Typefood" id="type-food">
+    <h2>¿Qué vas a comer?</h2>
+    <option value="brunch">Brunch</option>
+    <option value="comida">Comida</option>
+    <option value="cena">Cena</option>
+    <option value="postre">Postre</option>
+  </select>
+
+  <select name="Budget-acomp" id="budget-acomp">
+    <h3>¿Cuánto quieres gastar?</h3>
+    <option value="1">$0-200</option>
+    <option value="2">$200-400</option>
+    <option value="3">$400-600</option>
+    <option value="4">$600-1000</option>
+  </select>
+  <input type="submit" value="Enviar respuestas">
+
 </form>
 <script src="/javascripts/listeners.js"></script>

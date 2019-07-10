@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {}, false);
 
-//condicionales para presupuesto//
+/*
 if (document.getElementById("budget-fiesta").value === 1) {
+
+
 }
 
 if (document.getElementById("budget-fiesta").value === 2) {
@@ -34,3 +36,4 @@ if (document.getElementById("budget-acomp").value === 3) {
 }
 if (document.getElementById("budget-acomp").value === 4) {
 }
+*/
