@@ -31,13 +31,11 @@
   <label for="photo">Agrega una foto de tu establecimiento</label>
   <input type="file" name="photo" id="photo">
   <br />
-
   <label for="Drinks">Agrega las bebidas que ofrece tu Restaurante</label>
-  <select multiple name="drinks" id="drinks">
-    {{#each drinks as |drink|}}
-    <option value="{{drink._id}}">{{drink.name}}</option>
-    {{/each}}
-  </select>
+
+  {{#each drinks as |drink|}}
+  <input type="checkbox" name="drinks" value="{{drink._id}}">{{drink.name}}</input>
+  {{/each}}
 
 
   {{#if message }}

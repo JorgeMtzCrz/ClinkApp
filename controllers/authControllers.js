@@ -1,7 +1,6 @@
 const User = require('../models/User')
 const Restaurant = require('../models/Restaurant')
 const Drink = require('../models/Drink')
-
 const passport = require('../config/passport')
 
 exports.getSignup = (req, res) => {
@@ -36,7 +35,6 @@ exports.postSignup = async(req, res, next) => {
             res.send(err)
         })
 }
-
 exports.getLogin = (req, res) => {
     res.render('auth/login')
 }
@@ -51,16 +49,12 @@ exports.postLogin = (req, res, next) => {
         })
     })(req, res, next)
 }
-
 exports.getRestaurant = async(req, res) => {
     const drinks = await Drink.find()
     res.render('auth/altares', {
         drinks
     })
-
-
 }
-
 exports.postRestaurant = (req, res, next) => {
     const {
         name,
@@ -73,7 +67,6 @@ exports.postRestaurant = (req, res, next) => {
     const location = {
         coordinates: [lat, lng]
     }
-    console.log(req.body)
     const n = {
         ...location,
         coordinates: [Number(location.coordinates[0]), Number(location.coordinates[1])]
@@ -96,19 +89,20 @@ exports.postRestaurant = (req, res, next) => {
         .then(restaurant => res.redirect(`perfil`))
         .catch(err => next(err))
 }
-exports.getOneRest = (req, res, next) => {
-    const restaurants = Restaurant.findById(req.params.id, (err, restaurants) => {
-        Drink.populate(restaurants, {
-            path: 'drinks'
-        }, function(err, restaurants) {
-            res.render('auth/restaurant', restaurants)
-        })
-    })
+exports.getOneRest = async(req, res, next) => {
+    // const restaurant = Restaurant.findById(req.params.id, (err, restaurants) => {
+    //     Drink.populate(restaurant, {
+    //         path: 'drinks'
+    //     }, function(err, restaurant) {
+    //         res.render('auth/restaurant', restaurant)
+    //     })
+    // })
+    const restaurant = await Restaurant.findById(req.params.id).populate('drinks')
+    res.render('auth/restaurant', restaurant)
 }
 exports.getDrinks = (req, res) => {
     Restaurant.findById(req.params.id)
         .then(restaurant => res.render(`auth/altadrink`, restaurant))
-
 }
 exports.postDrink = (req, res, next) => {
     const {
@@ -154,11 +148,27 @@ exports.getProfile = async(req, res, next) => {
                 restaurants
             })
         })
-
+}
+exports.getDeleteDrink = async(req, res, next) => {
+    const restaurant = await Restaurant.findByIdAndUpdate(req.params.restaurantID, {
+        $pull: {
+            drinks: req.params.drinkID
+        }
+    }, {
+        new: true
+    })
+    res.redirect(`/auth/restaurant/${restaurant._id}/edit`)
+}
+exports.getDeleteRest = async(req, res, next) => {
+    const restaurant = await Restaurant.findByIdAndDelete(req.params.restaurantID)
+    res.redirect(`/auth/perfil`)
 }
 
-exports.getDeleteDrink = (req, res, next) => {
-    Restaurant.findByIdAndDelete(req.params._id)
-        .then(() => res.redirect('/'))
-        .catch(err => next(err))
+exports.getEditRest = async(req, res, next) => {
+    const drinks = await Drink.find()
+    const restaurant = await Restaurant.findByIdAndUpdate(req.params.restaurantID).populate('drinks')
+    res.render('auth/editres', {
+        restaurant,
+        drinks
+    })
 }
