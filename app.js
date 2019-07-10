@@ -76,7 +76,7 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 app.locals.title = "Clink!";
 app.use("/auth", require("./routes/authRoutes"));
 const index = require("./routes/index");
-app.use("/", checkLoggedUser, index);
+app.use("/", index);
 app.use("/auth", checkLoggedUser, require("./routes/authRoutes"));
 
 module.exports = app;

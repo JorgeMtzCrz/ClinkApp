@@ -1,1 +1,9 @@
 <h2>{{name}}</h2>
+<h3>{{giro}}</h3>
+{{#each drinks}}
+{{this.name}}
+<br />
+<img src="{{this.imgPath}}" alt="{{this.imgName}}" width="400">
+<br />
+<a href="/drinks/delete">Delete</a>
+{{/each}}

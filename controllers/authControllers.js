@@ -52,8 +52,13 @@ exports.postLogin = (req, res, next) => {
     })(req, res, next)
 }
 
-exports.getRestaurant = (req, res) => {
-    res.render('auth/altares')
+exports.getRestaurant = async(req, res) => {
+    const drinks = await Drink.find()
+    res.render('auth/altares', {
+        drinks
+    })
+
+
 }
 
 exports.postRestaurant = (req, res, next) => {
@@ -62,11 +67,13 @@ exports.postRestaurant = (req, res, next) => {
         giro,
         averagePrice,
         lat,
-        lng
+        lng,
+        drinks
     } = req.body
     const location = {
         coordinates: [lat, lng]
     }
+    console.log(req.body)
     const n = {
         ...location,
         coordinates: [Number(location.coordinates[0]), Number(location.coordinates[1])]
@@ -84,14 +91,19 @@ exports.postRestaurant = (req, res, next) => {
             imgPath,
             imgName,
             creatorId: id,
+            drinks
         })
         .then(restaurant => res.redirect(`perfil`))
         .catch(err => next(err))
 }
-exports.getOneRest = async(req, res, next) => {
-    Restaurant.findById(req.params.id)
-        .then(restaurant => res.render('auth/restaurant', restaurant))
-        .catch(err => next(err))
+exports.getOneRest = (req, res, next) => {
+    const restaurants = Restaurant.findById(req.params.id, (err, restaurants) => {
+        Drink.populate(restaurants, {
+            path: 'drinks'
+        }, function(err, restaurants) {
+            res.render('auth/restaurant', restaurants)
+        })
+    })
 }
 exports.getDrinks = (req, res) => {
     Restaurant.findById(req.params.id)
@@ -143,4 +155,10 @@ exports.getProfile = async(req, res, next) => {
             })
         })
 
+}
+
+exports.getDeleteDrink = (req, res, next) => {
+    Restaurant.findByIdAndDelete(req.params._id)
+        .then(() => res.redirect('/'))
+        .catch(err => next(err))
 }

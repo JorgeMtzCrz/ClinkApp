@@ -31,6 +31,16 @@
   <label for="photo">Agrega una foto de tu establecimiento</label>
   <input type="file" name="photo" id="photo">
   <br />
+<<<<<<< HEAD:views/auth/altares.hbs
+=======
+  <label for="Drinks">Agrega las bebidas que ofrece tu Restaurante</label>
+  <select multiple name="drinks" id="drinks">
+    {{#each drinks as |drink|}}
+    <option value="{{drink._id}}">{{drink.name}}</option>
+    {{/each}}
+  </select>
+
+>>>>>>> 1bd1cb547c27a5965fe7ce71349852f1bdb699e0:views/auth/altaRes.hbs
   {{#if message }}
   <div class="error-message">{{ message }}</div>
   {{/if}}
