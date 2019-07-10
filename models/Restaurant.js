@@ -25,7 +25,11 @@ const restaurantSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     },
-    calification: [Number]
+    calification: [Number],
+    drinks: [{
+        type: Schema.Types.ObjectId,
+        ref: "Drink"
+    }]
 }, {
 
     timestamps: true,

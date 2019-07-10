@@ -1,5 +1,6 @@
 const User = require('../models/User')
 const Restaurant = require('../models/Restaurant')
+const Drink = require('../models/Drink')
 
 const passport = require('../config/passport')
 
@@ -52,7 +53,6 @@ exports.postLogin = (req, res, next) => {
 }
 
 exports.getRestaurant = (req, res) => {
-    console.log(req.app.locals._id)
     res.render('auth/altares')
 }
 
@@ -67,8 +67,6 @@ exports.postRestaurant = (req, res, next) => {
     const location = {
         coordinates: [lat, lng]
     }
-
-
     const n = {
         ...location,
         coordinates: [Number(location.coordinates[0]), Number(location.coordinates[1])]
@@ -88,6 +86,39 @@ exports.postRestaurant = (req, res, next) => {
             creatorId: id,
         })
         .then(restaurant => res.redirect(`perfil`))
+        .catch(err => next(err))
+}
+exports.getOneRest = async(req, res, next) => {
+    Restaurant.findById(req.params.id)
+        .then(restaurant => res.render('auth/restaurant', restaurant))
+        .catch(err => next(err))
+}
+exports.getDrinks = (req, res) => {
+    Restaurant.findById(req.params.id)
+        .then(restaurant => res.render(`auth/altadrink`, restaurant))
+
+}
+exports.postDrink = (req, res, next) => {
+    const {
+        name,
+        alcohol,
+        typeDrink,
+        description
+    } = req.body
+    const {
+        url: imgPath,
+        originalname: imgName
+    } = req.file
+
+    Drink.create({
+            name,
+            alcohol,
+            typeDrink,
+            description,
+            imgPath,
+            imgName
+        })
+        .then(drink => res.redirect(`perfil`))
         .catch(err => next(err))
 }
 
