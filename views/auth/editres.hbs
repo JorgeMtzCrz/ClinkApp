@@ -1,3 +1,12 @@
+<head>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+  <script
+    src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet'
+    href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css'
+    type='text/css' />
+</head>
 <form action="/restaurant/{{restaurant._id}}/edit" method="POST">
   <p><label for="name">Name</label>
     <input type="text" name="name" placeholder="name" value="{{restaurant.name}}">
@@ -31,6 +40,15 @@
     <input type="checkbox" name="drinks" value="{{drink._id}}">{{drink.name}}</input>
     {{/each}}
   </p>
+  <p>
+    <label for="map">Si deseas actualizar tu ubicación utiliza el mapa</label>
+    <input type="number" name="lng" id="lng" value="{{restaurant.lng}}" hidden>
+    <input type="number" name="lat" id="lat" value="{{restaurant.lat}}" hidden>
+    <div id='map' style='width: 400px; height: 300px;'></div>
+  </p>
 
   <input type="submit" value="Guardar">
 </form>
+
+<script src="/javascripts/mapbox.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
