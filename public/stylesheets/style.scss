@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  //font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -32,9 +32,9 @@ a {
 }
 
 #first-view {
+  text-align: center;
   display: flex;
-
-  flex-flow: column wrap;
+  flex-direction: column;
 }
 
 #first-view img {

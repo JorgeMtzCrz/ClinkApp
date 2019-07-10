@@ -1,7 +1,6 @@
 @charset "UTF-8";
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  padding: 50px; }
 
 a {
   color: #00b7ff; }
@@ -26,8 +25,9 @@ a {
   display: none; }
 
 #first-view {
+  text-align: center;
   display: flex;
-  flex-flow: column wrap; }
+  flex-direction: column; }
 
 #first-view img {
   width: 15%; }

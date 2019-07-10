@@ -10,27 +10,21 @@
     <img src="/images/drinks-png-hd-food-cocktails-and-more-1000.png" alt='coctel' />
   </div>
   <div id='acomp'>
-    <h2>Acompañamiento</h2>
+    <h2>Acompaña tu comida</h2>
     <img src="/images/wine_PNG9463.png" alt='acomp'>
   </div>
 </div>
 
 <form action="/preguntas" method="POST" id='fiesta-form'>
-  <h3>¿A dónde quieres ir</h3>
+  <h3>¿A dónde quieres ir?</h3>
 
   <select name="giro" id="giro">
-    <option value="antro"> Antro</option>
-    <option value="bar"> Bar</option>
-    <option value="cantina"> Cantina</option>
+    <option value="Antro"> Antro</option>
+    <option value="Bar"> Bar</option>
+    <option value="Cantina"> Cantina</option>
   </select>
-  <h3>¿Qué quieres tomar?</h3>
-  <select name="drink" id="type-drink">
-    <option value="vodka"> Vodka</option>
-    <option value="whisky"> Whisky</option>
-    <option value="tequila"> Tequila</option>
-    <option value="cerveza"> Cerveza</option>
-    <option value="ron">Ron</option>
-  </select>
+
+
 
   <h3>¿Cuánto quieres gastar?</h3>
   <select name="averagePrice">
@@ -43,56 +37,70 @@
 </form>
 
 <form action="/preguntas" method="POST" id="coctel-form">
+  <h3>¿A dónde quieres ir?</h3>
+
+  <select name="giro" id="giro">
+    <option value="Antro"> Antro</option>
+    <option value="Bar"> Bar</option>
+    <option value="Cantina"> Cantina</option>
+    <option value="Restaurant">Restaurante</option>
+  </select>
 
   <h3>¿Qué tipo de trago se te antoja?</h3>
-  <select name: 'typeDrink' id="type-drink">
-    <option value="coctel">Coctel</option>
-    <option value="solo">Solo</option>
-    <option value="mix">Mix</option>
+  <select name='typeDrink' id="type-drink">
+    <option value="Cocktail">Coctel</option>
+    <option value="Solo">Solo</option>
+    <option value="Mix">Mix</option>
   </select>
 
   <h3>¿Qué quieres tomar?</h3>
-  <select name="drink" id="type-drink">
-    <option value="vodka"> Vodka</option>
-    <option value="whisky"> Whisky</option>
-    <option value="tequila"> Tequila</option>
-    <option value="cerveza"> Cerveza</option>
-    <option value="ron">Ron</option>
-    <option value='vino'>Vino</option>
+  <select name="alcohol" id="type-drink">
+    <option value="Vodka"> Vodka</option>
+    <option value="Whisky"> Whisky</option>
+    <option value="Tequila"> Tequila</option>
+    <option value="Cerveza"> Cerveza</option>
+    <option value="Ron">Ron</option>
+    <option value='Vino'>Vino</option>
   </select>
 
 
 
   <h3>¿Cuánto quieres gastar?</h3>
   <select name="averagePrice" id="budget-coctel">
-    <option value="1">$0-200</option>
-    <option value="2">$200-400</option>
-    <option value="3">$400-600</option>
-    <option value="4">$600-1000</option>
+    <option value="200">$0-200</option>
+    <option value="400">$200-400</option>
+    <option value="600">$400-600</option>
+    <option value="1000">$600-1000</option>
   </select>
   <input type="submit" value="Enviar respuestas">
 </form>
 
 <form action="/preguntas" method="POST" id='acomp-form'>
 
+  <h3>¿A dónde quieres ir?</h3>
+
+  <select name="giro" id="giro">
+    <option value="Restaurant">Restaurante</option>
+    <option value="Cantina"> Cantina</option>
+  </select>
 
   <h2>¿Qué quieres tomar?</h2>
-  <select name="Typedrink" id="type-drink">
-    <option value="vodka"> Vodka</option>
-    <option value="whisky"> Whisky</option>
-    <option value="tequila"> Tequila</option>
-    <option value="cerveza"> Cerveza</option>
-    <option value="ron">Ron</option>
-    <option value='vino'>Vino</option>
+  <select name="alcohol" id="type-drink">
+    <option value="Vodka"> Vodka</option>
+    <option value="Whisky"> Whisky</option>
+    <option value="Tequila"> Tequila</option>
+    <option value="Cerveza"> Cerveza</option>
+    <option value="Ron">Ron</option>
+    <option value='Vino'>Vino</option>
   </select>
 
 
   <select name="averagePrice" id="budget-acomp">
     <h3>¿Cuánto quieres gastar?</h3>
-    <option value="1">$0-200</option>
-    <option value="2">$200-400</option>
-    <option value="3">$400-600</option>
-    <option value="4">$600-1000</option>
+    <option value="200">$0-200</option>
+    <option value="400">$200-400</option>
+    <option value="600">$400-600</option>
+    <option value="1000">$600-1000</option>
   </select>
   <input type="submit" value="Enviar respuestas">
 

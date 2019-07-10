@@ -1,23 +1,29 @@
 const Restaurant = require("../models/Restaurant");
-const Drink = require("../models/Drink");
 
 exports.getPreguntas = (req, res, next) => {
-  console.log("Este es el body de preguntas" + req.body);
   res.render("preguntas");
 };
 
-exports.postPreguntas = async (req, res, next) => {
-  const { averagePrice, giro, drink, typeDrink } = req.body;
-
+exports.postPreguntas = (req, res, next) => {
+  const { averagePrice, giro, alcohol, typeDrink } = req.body;
+  console.log(req.body);
   Restaurant.find({
     $and: [
       { averagePrice: { $eq: `${averagePrice}` } },
-      { giro: { $eq: `${giro}` } },
-      { drink: { $eq: `${drink}` } },
-      { typeDrink: { $eq: `${typeDrink}` } }
+      { giro: { $eq: `${giro}` } }
     ]
   })
+    .populate({
+      path: "drinks",
+      match: {
+        $and: [
+          { alcohol: { $eq: `${alcohol}` } },
+          { typeDrink: { $eq: `${typeDrink}` } }
+        ]
+      }
+    })
     .then(restaurants => {
+      console.log(restaurants);
       res.render("resultados", { restaurants });
     })
     .catch(err => next(err));
