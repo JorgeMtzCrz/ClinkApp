@@ -7,11 +7,25 @@ exports.getPreguntas = (req, res, next) => {
 };
 
 exports.postPreguntas = async (req, res, next) => {
-  const { averagePrice } = req.body;
-  console.log(req.body.averagePrice);
-  const restaurants = await Restaurant.find({
-    $and: [{ averagePrice: { $eq: `${averagePrice}` } }]
-  }).then(restaurants => {
-    res.render("resultados", { restaurants });
-  });
+  const { averagePrice, giro, drink, typeDrink } = req.body;
+
+  Restaurant.find({
+    $and: [
+      { averagePrice: { $eq: `${averagePrice}` } },
+      { giro: { $eq: `${giro}` } },
+      { drink: { $eq: `${drink}` } },
+      { typeDrink: { $eq: `${typeDrink}` } }
+    ]
+  })
+    .then(restaurants => {
+      res.render("resultados", { restaurants });
+    })
+    .catch(err => next(err));
+};
+exports.getHome = (req, res, next) => {
+  res.redirect("/preguntas");
+};
+
+exports.getAbout = (req, res, next) => {
+  res.render("about");
 };

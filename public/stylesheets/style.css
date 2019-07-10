@@ -25,10 +25,11 @@ a {
 #acomp-form {
   display: none; }
 
-#fiesta,
-#acomp,
-#coctel {
+#first-view {
   display: flex;
-  justify-content: center; }
+  flex-flow: column wrap; }
+
+#first-view img {
+  width: 15%; }
 
 /*# sourceMappingURL=style.css.map */
