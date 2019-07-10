@@ -96,14 +96,19 @@ exports.postRestaurant = (req, res, next) => {
         .then(restaurant => res.redirect(`perfil`))
         .catch(err => next(err))
 }
-exports.getOneRest = (req, res, next) => {
-    const restaurants = Restaurant.findById(req.params.id, (err, restaurants) => {
-        Drink.populate(restaurants, {
-            path: 'drinks'
-        }, function(err, restaurants) {
-            res.render('auth/restaurant', restaurants)
-        })
-    })
+exports.getOneRest = async(req, res, next) => {
+    // const restaurant = Restaurant.findById(req.params.id, (err, restaurants) => {
+    //     Drink.populate(restaurant, {
+    //         path: 'drinks'
+    //     }, function(err, restaurant) {
+    //         res.render('auth/restaurant', restaurant)
+    //     })
+    // })
+
+    const restaurant = await Restaurant.findById(req.params.id).populate('drinks')
+    res.render('auth/restaurant', restaurant)
+
+
 }
 exports.getDrinks = (req, res) => {
     Restaurant.findById(req.params.id)
@@ -157,8 +162,19 @@ exports.getProfile = async(req, res, next) => {
 
 }
 
-exports.getDeleteDrink = (req, res, next) => {
-    Restaurant.findByIdAndDelete(req.params._id)
-        .then(() => res.redirect('/'))
-        .catch(err => next(err))
+exports.getDeleteDrink = async(req, res, next) => {
+    const restaurant = await Restaurant.findByIdAndUpdate(req.params.restaurantID, {
+        $pull: {
+            drinks: req.params.drinkID
+        }
+    }, {
+        new: true
+    })
+    res.redirect(`/auth/restaurant/${restaurant._id}`)
+}
+
+exports.getDeleteRest = async(req, res, next) => {
+    const restaurant = await Restaurant.findByIdAndDelete(req.params.restaurantID)
+    res.redirect(`/auth/perfil`)
+
 }
