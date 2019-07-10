@@ -3,7 +3,7 @@
 <div id="first-view">
   <div id="fiesta">
     <h2>Fiesta</h2>
-    <img src="../pictures/alcol.jpg" alt='fiesta'>
+    <img src="./pictures/alcol.jpg" alt='fiesta'>
   </div>
   <div id="coctel">
     <h2>Coctel</h2>
@@ -15,16 +15,16 @@
   </div>
 </div>
 
-<form action="/resultados" method="get" id='fiesta-form'>
+<form action="/preguntas" method="POST" id='fiesta-form'>
 
   <h3>¿Cuánto quieres gastar?</h3>
 
-  <select name="Budget-fiesta">
+  <select name="averagePrice">
 
-    <option value="1">$0-200</option>
-    <option value="2">$200-400</option>
-    <option value="3">$400-600</option>
-    <option value="4">$600-1000</option>
+    <option value="200">$0-200</option>
+    <option value="400">$200-400</option>
+    <option value="600">$400-600</option>
+    <option value="1000">$600-1000</option>
   </select>
   <input type="submit" value="Enviar respuestas">
 </form>
@@ -38,6 +38,7 @@
     <option value="whisky"> Con whisky</option>
     <option value="tequila"> Con tequila</option>
     <option value="cerveza"> Con cerveza</option>
+    <option></option>
   </select>
 
 
