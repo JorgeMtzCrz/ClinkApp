@@ -20,4 +20,16 @@ a {
 .ec-stars-wrapper:hover a {
   color: #2782e4; }
 
+#fiesta-form,
+#coctel-form,
+#acomp-form {
+  display: none; }
+
+#first-view {
+  display: flex;
+  flex-flow: column wrap; }
+
+#first-view img {
+  width: 15%; }
+
 /*# sourceMappingURL=style.css.map */

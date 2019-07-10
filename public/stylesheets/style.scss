@@ -24,3 +24,19 @@ a {
 .ec-stars-wrapper:hover a {
   color: rgb(39, 130, 228);
 }
+
+#fiesta-form,
+#coctel-form,
+#acomp-form {
+  display: none;
+}
+
+#first-view {
+  display: flex;
+
+  flex-flow: column wrap;
+}
+
+#first-view img {
+  width: 15%;
+}

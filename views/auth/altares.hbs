@@ -1,21 +1,16 @@
 <head>
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
-
   <script
     src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
   <link rel='stylesheet'
     href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css'
     type='text/css' />
-
 </head>
-
 <h2>Dar de alta un Restaurante</h2>
-
 <form action="/auth/altares" method="POST" enctype="multipart/form-data" novalidate>
   <label for="name">Nombre</label>
   <input id="name" type="text" name="name">
-
   <br />
   <label for="giro">Giro</label>
   <select name="giro" id="giro">
@@ -36,6 +31,7 @@
   <label for="photo">Agrega una foto de tu establecimiento</label>
   <input type="file" name="photo" id="photo">
   <br />
+<<<<<<< HEAD:views/auth/altaRes.hbs
   <label for="Drinks">Agrega las bebidas que ofrece tu Restaurante</label>
   <select multiple name="drinks" id="drinks">
     {{#each drinks as |drink|}}
@@ -43,18 +39,17 @@
     {{/each}}
   </select>
 
+=======
+>>>>>>> 39f04f70574389dce4cfde07c0e8d7d8ef775336:views/auth/altares.hbs
   {{#if message }}
   <div class="error-message">{{ message }}</div>
   {{/if}}
-
   <br />
-
   <button type="submit">Dar de alta</button>
 </form>
 {{!-- <p class="account-message">
   ¿Ya tienes tu cuenta?
   <a href="/auth/login">Login</a>
 </p> --}}
-
 <script src="/javascripts/mapbox.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
