@@ -11,7 +11,6 @@ router.get("/", getHome, (req, res, next) => {
   res.render("index");
 });
 
-//router.get("/", getHome);
 router.get("/about", getAbout);
 router.get("/preguntas", getPreguntas);
 router.post("/preguntas", postPreguntas);

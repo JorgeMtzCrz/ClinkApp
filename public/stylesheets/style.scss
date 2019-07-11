@@ -4,11 +4,7 @@ body {
 }
 
 a {
-  color: #00b7ff;
-}
-
-.ec-stars-wrapper {
-  display: inline-block;
+  color: rgb(202, 15, 77);
 }
 
 .ec-stars-wrapper a {
@@ -39,4 +35,9 @@ a {
 
 #first-view img {
   width: 15%;
+}
+
+#restaurants {
+  display: flex;
+  justify-content: center;
 }

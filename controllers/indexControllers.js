@@ -4,29 +4,18 @@ exports.getPreguntas = (req, res, next) => {
   res.render("preguntas");
 };
 
-exports.postPreguntas = (req, res, next) => {
+exports.postPreguntas = async (req, res, next) => {
   const { averagePrice, giro, alcohol, typeDrink } = req.body;
   console.log(req.body);
-  Restaurant.find({
+  const restaurant = await Restaurant.find({
     $and: [
       { averagePrice: { $eq: `${averagePrice}` } },
       { giro: { $eq: `${giro}` } }
     ]
-  })
-    .populate({
-      path: "drinks",
-      match: {
-        $and: [
-          { alcohol: { $eq: `${alcohol}` } },
-          { typeDrink: { $eq: `${typeDrink}` } }
-        ]
-      }
-    })
-    .then(restaurants => {
-      console.log(restaurants);
-      res.render("resultados", { restaurants });
-    })
-    .catch(err => next(err));
+  }).populate("drinks");
+
+  console.log(restaurant);
+  res.render("resultados", { restaurant });
 };
 exports.getHome = (req, res, next) => {
   res.redirect("/preguntas");
@@ -34,4 +23,12 @@ exports.getHome = (req, res, next) => {
 
 exports.getAbout = (req, res, next) => {
   res.render("about");
+};
+
+exports.getDrinkCard = (req, res, next) => {
+  res.render("partials/drinkCard");
+};
+
+exports.getRestCard = (req, res, next) => {
+  res.render("partials/restaurantCard");
 };
