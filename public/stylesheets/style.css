@@ -3,7 +3,7 @@ body {
   padding: 50px; }
 
 a {
-  color: #00b7ff; }
+  color: #ca0f4d; }
 
 .ec-stars-wrapper a {
   text-decoration: none;
@@ -28,5 +28,9 @@ a {
 
 #first-view img {
   width: 15%; }
+
+#restaurants {
+  display: flex;
+  justify-content: center; }
 
 /*# sourceMappingURL=style.css.map */
