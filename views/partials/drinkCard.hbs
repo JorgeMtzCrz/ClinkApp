@@ -1,7 +1,9 @@
 <div class='card'>
-  <h3>{{this.name}}</h3>
-  <img class="card-img-top" src="{{this.imgPath}}" alt="{{this.imgName}}" width="200">
+  {{#each restaurant.drinks as |drink|}}
+  <h3>{{drink.name}}</h3>
+  <img class="card-img-top" src="{{drink.imgPath}}" alt="{{drink.imgName}}" width="200">
   <div class="card-body">
-    <p>{{this.description}}</p>
+    <p>{{drink.description}}</p>
+    {{/each}}
   </div>
 </div>
