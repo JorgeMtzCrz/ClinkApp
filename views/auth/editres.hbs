@@ -30,6 +30,7 @@
     <br />
     {{#each restaurant.drinks as |drink|}}
     {{drink.name}}
+
     <a href="/auth/restaurant/{{../restaurant._id}}/drinks/{{this._id}}/delete">Delete</a>
     {{/each}}
   </p>

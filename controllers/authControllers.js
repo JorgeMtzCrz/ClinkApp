@@ -171,15 +171,24 @@ exports.getEditRest = async(req, res, next) => {
         restaurant,
         drinks
     })
+    console.log()
 }
 
 exports.postEditRest = async(req, res, next) => {
+    const {
+        name,
+        giro,
+        averagePrice,
+        drinks
+    } = req.body
     const restaurant = await Restaurant.findByIdAndUpdate(req.params.restaurantID, {
-        $set: {
-            ...req.body
+        name,
+        giro,
+        averagePrice,
+        $push: {
+            drinks: drinks
         }
-    }, {
-        new: true
+
     }).populate('drinks')
     res.redirect(`/auth/perfil`)
 }
