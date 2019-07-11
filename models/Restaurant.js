@@ -28,12 +28,15 @@ const restaurantSchema = new Schema({
     calification: [Number],
     drinks: [{
         type: Schema.Types.ObjectId,
-        ref: "Drink"
+        ref: "Drink",
+        // autopopulate: true
     }]
 }, {
 
     timestamps: true,
     versionKey: false
 })
+
+// restaurantSchema.plugin(require('mongoose-autopopulate'))
 
 module.exports = model("Restaurant", restaurantSchema);
