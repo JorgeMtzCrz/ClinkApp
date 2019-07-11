@@ -10,7 +10,12 @@ exports.postPreguntas = async (req, res, next) => {
   const restaurant = await Restaurant.find({
     $and: [
       { averagePrice: { $eq: `${averagePrice}` } },
-      { giro: { $eq: `${giro}` } }
+      { giro: { $eq: `${giro}` } },
+      {
+        drinks: {
+          $elemMatch: { alcohol: `${alcohol}`, typeDrink: `${typeDrink}` }
+        }
+      }
     ]
   }).populate("drinks");
 
