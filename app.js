@@ -14,7 +14,7 @@ const { checkLoggedUser } = require("./middlewares/auth");
 
 mongoose
   .connect(
-    "mongodb+srv://clinkapp:qwer@cluster0-zn6i8.mongodb.net/test?retryWrites=true&w=majority",
+    "mongodb + srv://clinkapp:qwer@cluster0-zn6i8.mongodb.net/test?retryWrites=true&w=majority",
     {
       useNewUrlParser: true
     }
