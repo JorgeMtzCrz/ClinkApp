@@ -35,3 +35,11 @@ exports.getHome = (req, res, next) => {
 exports.getAbout = (req, res, next) => {
   res.render("about");
 };
+
+exports.getDrinkCard = (req, res, next) => {
+  res.render("partials/drinkCard");
+};
+
+exports.getRestCard = (req, res, next) => {
+  res.render("partials/restaurantCard");
+};
