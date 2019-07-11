@@ -13,9 +13,12 @@ const session = require("express-session");
 const { checkLoggedUser } = require("./middlewares/auth");
 
 mongoose
-  .connect("mongodb://localhost/project2-a", {
-    useNewUrlParser: true
-  })
+  .connect(
+    "mongodb+srv://clinkapp:qwer@cluster0-zn6i8.mongodb.net/test?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true
+    }
+  )
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
