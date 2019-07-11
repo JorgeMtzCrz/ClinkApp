@@ -18,7 +18,8 @@ const {
     getOneRest,
     getDeleteDrink,
     getDeleteRest,
-    getEditRest
+    getEditRest,
+    postEditRest
 } = require('../controllers/authControllers')
 const {
     isLoggedIn,
@@ -42,7 +43,7 @@ router.post("/drinks", isAuth, isAdmin, uploadCloud.single('photo'), postDrink)
 router.get('/restaurant/:restaurantID/delete', getDeleteRest)
 router.get('/restaurant/:restaurantID/drinks/:drinkID/delete', getDeleteDrink)
 router.get('/restaurant/:restaurantID/edit', getEditRest)
-router.post('/restaurant/:restaurantID/edit', getEditRest)
+router.post('/restaurant/:restaurantID/edit', postEditRest)
 
 
 module.exports = router;
