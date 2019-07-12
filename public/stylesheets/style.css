@@ -76,7 +76,6 @@ a {
   margin: 8%;
   color: #ca0f4d; }
 
-<<<<<<< HEAD
 #drinkCard {
   display: flex;
   justify-content: center;
@@ -88,9 +87,22 @@ a {
 
 #cardSingle {
   margin-right: 20px; }
-=======
+
 .perfil-title {
-  margin-bottom: 5%; }
->>>>>>> b23823667686c0ec547dfc638b0461eb2e9821aa
+  margin-bottom: 20px; }
+
+#cardPerfil {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+#imgPf {
+  width: 25rem;
+  height: 25rem; }
+
+#map {
+  display: flex;
+  align-self: flex-start;
+  margin-left: 500px; }
 
 /*# sourceMappingURL=style.css.map */

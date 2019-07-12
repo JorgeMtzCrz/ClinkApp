@@ -90,13 +90,6 @@ exports.postRestaurant = (req, res, next) => {
         .catch(err => next(err))
 }
 exports.getOneRest = async(req, res, next) => {
-    // const restaurant = Restaurant.findById(req.params.id, (err, restaurants) => {
-    //     Drink.populate(restaurant, {
-    //         path: 'drinks'
-    //     }, function(err, restaurant) {
-    //         res.render('auth/restaurant', restaurant)
-    //     })
-    // })
     const restaurant = await Restaurant.findById(req.params.id).populate('drinks')
     res.render('auth/restaurant', restaurant)
 }

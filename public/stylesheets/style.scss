@@ -111,7 +111,6 @@ a {
     flex-wrap: wrap;
 }
 
-<<<<<<< HEAD
 #imagenCard {
     width: 16rem;
     height: 16rem;
@@ -120,8 +119,24 @@ a {
 #cardSingle {
     margin-right: 20px;
 }
-=======
+
 .perfil-title {
-  margin-bottom: 5%;
+    margin-bottom: 20px;
 }
->>>>>>> b23823667686c0ec547dfc638b0461eb2e9821aa
+
+#cardPerfil {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#imgPf {
+    width: 25rem;
+    height: 25rem;
+}
+
+#map {
+    display: flex;
+    align-self: flex-start;
+    margin-left: 500px;
+}
