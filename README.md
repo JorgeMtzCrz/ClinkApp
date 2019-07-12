@@ -10,11 +10,11 @@ se puede modificar el rol de usuario para cambiar a admin, barAdmin o user.
 - Contraseña: qwer
 
 # Tecnologias utilizadas
--Mapbox
--Js
--Bootstrap
--mongoose
--passport
--MongoDB
--Nodejs
--Express
+- Mapbox
+- Js
+- Bootstrap
+- Mongoose
+- passport
+- MongoDB
+- Nodejs
+- Express
