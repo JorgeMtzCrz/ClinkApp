@@ -7,43 +7,50 @@
     href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css'
     type='text/css' />
 </head>
-<h2>Dar de alta un Restaurante</h2>
-<form action="/auth/altares" method="POST" enctype="multipart/form-data" novalidate>
-  <label for="name">Nombre</label>
-  <input id="name" type="text" name="name">
-  <br />
-  <label for="giro">Giro</label>
-  <select name="giro" id="giro">
-    <option value="" selected disabled>Choose one</option>
-    <option value="Restaurant">Restaurante</option>
-    <option value="Bar">Bar</option>
-    <option value="Antro">Antro</option>
-    <option value="Cantina">Cantina</option>
-  </select>
-  <br />
-  <label for="averagePrice">Consumo promedio por persona</label>
-  <input id="averagePrice" type='text' name="averagePrice" placeholder="Ingresa el consumo">
-  <br />
-  <input type="number" name="lng" id="lng" hidden>
-  <input type="number" name="lat" id="lat" hidden>
-  <div id='map' style='width: 400px; height: 300px;'></div>
-  <br>
-  <label for="photo">Agrega una foto de tu establecimiento</label>
-  <input type="file" name="photo" id="photo">
-  <br />
-  <label for="Drinks">Agrega las bebidas que ofrece tu Restaurante</label>
+<div class="col-12-md">
+  <div class='col-6-md'>
+    <h2>Dar de alta un Restaurante</h2>
+    <form class="form-inline" action="/auth/altares" method="POST" enctype="multipart/form-data" novalidate>
+      <label for="name">Nombre</label>
+      <input id="name" type="text" name="name">
 
-  {{#each drinks as |drink|}}
-  <input type="checkbox" name="drinks" value="{{drink._id}}">{{drink.name}}</input>
-  {{/each}}
+      <label for="giro">Giro</label>
+      <select class="custom-select" name="giro" id="giro">
+        <option value="" selected disabled>Choose one</option>
+        <option value="Restaurant">Restaurante</option>
+        <option value="Bar">Bar</option>
+        <option value="Antro">Antro</option>
+        <option value="Cantina">Cantina</option>
+      </select>
+  </div>
+  <div class="col-6-md">
+    <label for="averagePrice">Consumo promedio por persona</label>
+    <input id="averagePrice" type='text' name="averagePrice" placeholder="Ingresa el consumo">
+    <br />
+    <input type="number" name="lng" id="lng" hidden>
+    <input type="number" name="lat" id="lat" hidden>
+    <div id='map' style='width: 400px; height: 300px;'></div>
+    <br>
+    <label for="photo">Agrega una foto de tu establecimiento</label>
+    <input type="file" name="photo" id="photo">
+    <br />
+    <label for="Drinks">Agrega las bebidas que ofrece tu Restaurante</label>
+
+  </div>
+</div>
+{{#each drinks as |drink|}}
+<input type="checkbox" name="drinks" value="{{drink._id}}">{{drink.name}}</input>
+{{/each}}
 
 
-  {{#if message }}
-  <div class="error-message">{{ message }}</div>
-  {{/if}}
-  <br />
-  <button class="btn btn-outline-danger" type="submit">Dar de alta</button>
+{{#if message }}
+<div class="error-message">{{ message }}</div>
+{{/if}}
+<br />
+<button class="btn btn-outline-danger" type="submit">Dar de alta</button>
 </form>
+
+
 {{!-- <p class="account-message">
   ¿Ya tienes tu cuenta?
   <a href="/auth/login">Login</a>
