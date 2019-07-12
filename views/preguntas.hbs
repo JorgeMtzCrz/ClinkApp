@@ -1,13 +1,7 @@
-<div class="page-header">
-  <h1>¿De qué tienes ganas?</h1>
-</div>
-
-
 <div id="first-view">
 
   <div id="fiesta">
-
-
+    <h1>¿De qué tienes ganas?</h1>
     <h2>Fiesta</h2>
     <img src='/images/alcol.jpg' alt='fiesta'>
   </div>
@@ -21,110 +15,116 @@
   </div>
 </div>
 
-<h3>¿A dónde quieres ir?</h3>
-<divclass='form-group'>
-  <form action="/preguntas" method="POST" id='fiesta-form'>
+<form class="form-inline" action="/preguntas" method="POST" id='fiesta-form'>
+  <h3>¿A dónde quieres ir?</h3>
 
 
-    <select name="giro" id="giro">
-      <option value="Antro"> Antro</option>
-      <option value="Bar"> Bar</option>
-      <option value="Cantina"> Cantina</option>
-    </select>
+  <select class="custom-select" name="giro" id="giro">
+    <option value="Antro"> Antro</option>
+    <option value="Bar"> Bar</option>
+    <option value="Cantina"> Cantina</option>
+  </select>
 
 
-    <h3>¿Cuánto quieres gastar?</h3>
+  <h3>¿Cuánto quieres gastar?</h3>
 
-    <select name="averagePrice">
-      <option value="200">$0-200</option>
-      <option value="400">$200-400</option>
-      <option value="600">$400-600</option>
-      <option value="1000">$600-1000</option>
-    </select>
-    <input type="submit" value="Go!">
+  <select class="custom-select" name="averagePrice">
+    <option value="200">$0-200</option>
+    <option value="400">$200-400</option>
+    <option value="600">$400-600</option>
+    <option value="1000">$600-1000</option>
+  </select>
+  </br>
+  <button type="submit" class='btn btn-outline-danger' value="Go!">Go!</button>
 
+</form>
 
-  </form>
-  </div>
-  <form action="/preguntas" method="POST" id="coctel-form">
-    <h3>¿A dónde quieres ir?</h3>
-    <div class="giro-coctel">
-      <select name="giro" id="giro">
-        <option value="Antro"> Antro</option>
-        <option value="Bar"> Bar</option>
-        <option value="Cantina"> Cantina</option>
-        <option value="Restaurant">Restaurante</option>
-      </select>
-    </div>
+<form class="form-inline" action="/preguntas" method="POST" id="coctel-form">
 
-
-    <h2>¿Qué tipo de trago se te antoja?</h3>
-      <div id="type-drink">
-        <select name='typeDrink' id="type-drink">
-          <option value="Cocktail">Coctel</option>
-          <option value="Solo">Solo</option>
-          <option value="Mix">Mix</option>
-        </select>
-      </div>
-
-
-      <h2>¿Qué quieres tomar?</h2>
-      <div class="coctel-type">
-        <select name="alcohol" id="type-drink">
-          <option value="Vodka"> Vodka</option>
-          <option value="Whisky"> Whisky</option>
-          <option value="Tequila"> Tequila</option>
-          <option value="Cerveza"> Cerveza</option>
-          <option value="Ron">Ron</option>
-          <option value='Vino'>Vino</option>
-        </select>
-      </div>
-
-      <h3>¿Cuánto quieres gastar?</h3>
-      <div class="price-coctel">
-        <select name="averagePrice" id="budget-coctel">
-          <option value="200">$0-200</option>
-          <option value="400">$200-400</option>
-          <option value="600">$400-600</option>
-          <option value="1000">$600-1000</option>
-        </select>
-        <input type="submit" value="Go!">
-      </div>
-
-  </form>
-
-  <form action="/preguntas" method="POST" id='acomp-form'>
-
-    <h3>¿A dónde quieres ir?</h3>
-    <div id='giro-acomp'>
-      <select name="giro" id="giro">
-        <option value="Restaurant">Restaurante</option>
-        <option value="Cantina"> Cantina</option>
-      </select>
-    </div>
-    <h3>¿Qué quieres tomar?</h3>
-    <div class="acomp-drink">
-      <select name="alcohol" id="type-drink">
-        <option value="Vodka"> Vodka</option>
-        <option value="Whisky"> Whisky</option>
-        <option value="Tequila"> Tequila</option>
-        <option value="Cerveza"> Cerveza</option>
-        <option value="Ron">Ron</option>
-        <option value='Vino'>Vino</option>
-      </select>
-    </div>
+  <h3>¿A dónde quieres ir?</h3>
 
 
 
-    <h3>¿Cuánto quieres gastar?</h3>
-    <select name="averagePrice" id="budget-acomp">
-      <div>
-        <option value="200">$0-200</option>
-        <option value="400">$200-400</option>
-        <option value="600">$400-600</option>
-        <option value="1000">$600-1000</option>
-    </select>
-    <input type="submit" value="Go!" />
-    </div>
-  </form>
-  <script src="/javascripts/listeners.js"></script>
+
+  <select class="custom-select" name="giro" id="giro">
+    <option value="Antro"> Antro</option>
+    <option value="Bar"> Bar</option>
+    <option value="Cantina"> Cantina</option>
+    <option value="Restaurant">Restaurante</option>
+  </select>
+
+
+
+  <h3>¿Qué tipo de trago se te antoja?</h3>
+  </br>
+  <select class="custom-select" name='typeDrink' id="type-drink">
+    <option value="Cocktail">Coctel</option>
+    <option value="Solo">Solo</option>
+    <option value="Mix">Mix</option>
+  </select>
+
+
+  <h3>¿Qué quieres tomar?</h3>
+  </br>
+  <select class="custom-select" name="alcohol" id="type-drink">
+    <option value="Vodka"> Vodka</option>
+    <option value="Whisky"> Whisky</option>
+    <option value="Tequila"> Tequila</option>
+    <option value="Cerveza"> Cerveza</option>
+    <option value="Ron">Ron</option>
+    <option value='Vino'>Vino</option>
+  </select>
+
+
+  <h3>¿Cuánto quieres gastar?</h3>
+  </br>
+  <select class="custom-select" name="averagePrice" id="budget-coctel">
+    <option value="200">$0-200</option>
+    <option value="400">$200-400</option>
+    <option value="600">$400-600</option>
+    <option value="1000">$600-1000</option>
+  </select>
+  </br>
+  <button type="submit" class='btn btn-outline-danger' value="Go!">Go!</button>
+
+
+
+
+</form>
+
+<form class="form-inline" action="/preguntas" method="POST" id='acomp-form'>
+
+  <h3>¿A dónde quieres ir?</h3>
+
+  <select class="custom-select" name="giro" id="giro">
+    <option value="Restaurant">Restaurante</option>
+    <option value="Cantina"> Cantina</option>
+  </select>
+
+  <h3>¿Qué quieres tomar?</h3>
+
+  <select class="custom-select" name="alcohol" id="type-drink">
+    <option value="Vodka"> Vodka</option>
+    <option value="Whisky"> Whisky</option>
+    <option value="Tequila"> Tequila</option>
+    <option value="Cerveza"> Cerveza</option>
+    <option value="Ron">Ron</option>
+    <option value='Vino'>Vino</option>
+  </select>
+
+
+  <h3>¿Cuánto quieres gastar?</h3>
+
+  <select class="custom-select" name="averagePrice" id="budget-acomp">
+    <option value="200">$0-200</option>
+    <option value="400">$200-400</option>
+    <option value="600">$400-600</option>
+    <option value="1000">$600-1000</option>
+  </select>
+  </br>
+  <button type="submit" class='btn btn-outline-danger' value="Go!">Go!</button>
+
+
+
+</form>
+<script src="/javascripts/listeners.js"></script>
