@@ -10,27 +10,29 @@ const logger = require("morgan");
 const path = require("path");
 const passport = require("./config/passport");
 const session = require("express-session");
-const { checkLoggedUser } = require("./middlewares/auth");
+const {
+    checkLoggedUser
+} = require("./middlewares/auth");
 
 mongoose
-  .connect(
-    "mongodb+srv://clink:qwer@cluster0-liwfy.mongodb.net/test?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true
-    }
-  )
-  .then(x => {
-    console.log(
-      `Connected to Mongo! Database name: "${x.connections[0].name}"`
-    );
-  })
-  .catch(err => {
-    console.error("Error connecting to mongo", err);
-  });
+    .connect(
+        //"mongodb+srv://clink:qwer@cluster0-liwfy.mongodb.net/test?retryWrites=true&w=majority",
+        'mongodb://localhost/project2-a', {
+            useNewUrlParser: true
+        }
+    )
+    .then(x => {
+        console.log(
+            `Connected to Mongo! Database name: "${x.connections[0].name}"`
+        );
+    })
+    .catch(err => {
+        console.error("Error connecting to mongo", err);
+    });
 
 const app_name = require("./package.json").name;
 const debug = require("debug")(
-  `${app_name}:${path.basename(__filename).split(".")[0]}`
+    `${app_name}:${path.basename(__filename).split(".")[0]}`
 );
 
 hbs.registerPartials(`${__dirname}/views/partials`);
@@ -38,15 +40,15 @@ hbs.registerPartials(`${__dirname}/views/partials`);
 const app = express();
 
 app.use(
-  session({
-    secret: "s3cr3t0",
-    cookie: {
-      httpOnly: true,
-      maxAge: 1000 * 60 * 60
-    },
-    saveUninitialized: true,
-    resave: false
-  })
+    session({
+        secret: "s3cr3t0",
+        cookie: {
+            httpOnly: true,
+            maxAge: 1000 * 60 * 60
+        },
+        saveUninitialized: true,
+        resave: false
+    })
 );
 
 app.use(passport.initialize());
@@ -56,20 +58,20 @@ app.use(passport.session());
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
+    bodyParser.urlencoded({
+        extended: false
+    })
 );
 app.use(cookieParser());
 
 // Express View engine setup
 
 app.use(
-  require("node-sass-middleware")({
-    src: path.join(__dirname, "public"),
-    dest: path.join(__dirname, "public"),
-    sourceMap: true
-  })
+    require("node-sass-middleware")({
+        src: path.join(__dirname, "public"),
+        dest: path.join(__dirname, "public"),
+        sourceMap: true
+    })
 );
 
 app.set("views", path.join(__dirname, "views"));

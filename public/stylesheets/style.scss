@@ -1,25 +1,25 @@
 body {
-  padding: 50px;
-  text-align: center;
-  font-size: 18px;
+    padding: 50px;
+    text-align: center;
+    font-size: 18px;
 }
 
 .navbar ul {
-  display: flex;
-  align-self: normal;
+    display: flex;
+    align-self: normal;
 }
 
 h1 {
-  font-size: 2rem;
-  margin-bottom: 15%;
+    font-size: 2rem;
+    margin-bottom: 15%;
 }
 
 h2 {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 a {
-  color: rgb(202, 15, 77);
+    color: rgb(202, 15, 77);
 }
 
 // form {
@@ -28,81 +28,94 @@ a {
 //   text-align: center;
 //   margin: 15%;
 // }
-
 // select {
 //   margin: 5%;
 //   background-color: rgb(202, 15, 77);
 //   color: whitesmoke;
 //   border-radius: 10%;
 // }
-
 .form-inline {
-  color: rgb(202, 15, 77);
-  margin: 5%;
+    color: rgb(202, 15, 77);
+    margin: 5%;
 }
 
 .form-inline button {
-  margin: 5%;
+    margin: 5%;
 }
 
 .logo {
-  display: flex;
-  align-content: space-around;
+    display: flex;
+    align-content: space-around;
 }
 
 .ec-stars-wrapper a {
-  text-decoration: none;
-  display: inline-block;
-  /* Volver a dar tamaño al texto */
-  font-size: 32px;
-  font-size: 2rem;
-  color: #888;
+    text-decoration: none;
+    display: inline-block;
+    /* Volver a dar tamaño al texto */
+    font-size: 32px;
+    font-size: 2rem;
+    color: #888;
 }
 
 .ec-stars-wrapper:hover a {
-  color: rgb(202, 15, 77);
+    color: rgb(202, 15, 77);
 }
 
 #fiesta-form,
 #coctel-form,
 #acomp-form {
-  display: none;
-  text-align: center;
+    display: none;
+    text-align: center;
 }
 
 #first-view {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-content: space-around;
-  color: rgb(0, 0, 10);
-  transition: 0.3s;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    color: rgb(0, 0, 10);
+    transition: 0.3s;
 }
 
 #first-view:hover {
-  color: rgb(202, 15, 77);
+    color: rgb(202, 15, 77);
 }
 
 #first-view img {
-  width: 40%;
+    width: 40%;
 }
 
 #coctel {
-  margin-top: 5%;
+    margin-top: 5%;
 }
 
 #restaurants {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .about {
-  display: flex;
-  justify-content: center;
-  text-align: justify;
+    display: flex;
+    justify-content: center;
+    text-align: justify;
 }
 
 .about-title {
-  margin: 8%;
-  color: rgb(202, 15, 77);
+    margin: 8%;
+    color: rgb(202, 15, 77);
+}
+
+#drinkCard {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#imagenCard {
+    width: 16rem;
+    height: 16rem;
+}
+
+#cardSingle {
+    margin-right: 20px;
 }

@@ -76,4 +76,16 @@ a {
   margin: 8%;
   color: #ca0f4d; }
 
+#drinkCard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+#imagenCard {
+  width: 16rem;
+  height: 16rem; }
+
+#cardSingle {
+  margin-right: 20px; }
+
 /*# sourceMappingURL=style.css.map */

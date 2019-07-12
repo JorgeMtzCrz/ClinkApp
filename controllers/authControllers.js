@@ -44,7 +44,7 @@ exports.postLogin = (req, res, next) => {
         req.login(user, err => {
             if (err) return res.send('Fallo', err)
             req.app.locals.user = user
-            if (user.role === 'admin') return res.redirect('/admin')
+            if (user.role === 'admin') return res.redirect('perfil')
             else return res.redirect('perfil')
         })
     })(req, res, next)
