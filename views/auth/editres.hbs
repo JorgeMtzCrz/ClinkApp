@@ -7,50 +7,53 @@
     href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css'
     type='text/css' />
 </head>
-<form action="/restaurant/{{restaurant._id}}/edit" method="POST">
-  <p><label for="name">Name</label>
-    <input type="text" name="name" placeholder="name" value="{{restaurant.name}}">
-  </p>
-  <p>
-    <label for="giro">Giro</label>
-    <select name="giro" id="tgiro">
-      <option value="" selected disabled>Choose one</option>
-      <option value="Restaurant">Restaurante</option>
-      <option value="Bar">Bar</option>
-      <option value="Antro">Antro</option>
-      <option value="Cantina">Cantina</option>
-    </select>
-  </p>
-  <p>
-    <label for="averagePrice">Consumo promedio por persona</label>
-    <input id="averagePrice" type='text' name="averagePrice" value="{{restaurant.averagePrice}}">
-  </p>
-  <p>
-    <label for="drinks">Bebidas en tu Restaurante</label>
-    <br />
-    {{#each restaurant.drinks as |drink|}}
-    {{drink.name}}
+<div class="row-center">
+  <div class="col-2-md">
+    <form class="form-inline" action="/restaurant/{{restaurant._id}}/edit" method="POST">
+      <div class="col-6-sm">
+        <label for="name">Nombre</label>
+        <input type="text" name="name" placeholder="name" value="{{restaurant.name}}">
 
-    <a href="/auth/restaurant/{{../restaurant._id}}/drinks/{{this._id}}/delete">Delete</a>
-    {{/each}}
-  </p>
-  <p>
-    <label for="drinksadd">Bebidas que puedes agregar a tu carta</label>
-    <br />
-    {{#each drinks as |drink|}}
-    <input type="checkbox" name="drinks" value="{{drink._id}}">{{drink.name}}</input>
-    {{/each}}
-  </p>
-  <p>
-    <label for="map">Si deseas actualizar tu ubicación utiliza el mapa</label>
-    <input type="number" name="lng" id="lng" value="{{restaurant.lng}}" hidden>
-    <input type="number" name="lat" id="lat" value="{{restaurant.lat}}" hidden>
-    <div id='map' style='width: 400px; height: 300px;'></div>
-  </p>
+        </br>
+        <label for="giro">Giro</label>
+        <select class="custom-select" name="giro" id="tgiro">
+          <option value="" selected disabled>Choose one</option>
+          <option value="Restaurant">Restaurante</option>
+          <option value="Bar">Bar</option>
+          <option value="Antro">Antro</option>
+          <option value="Cantina">Cantina</option>
+        </select>
+      </div>
+      <div class="col-4-sm">
+        <label for="averagePrice">Consumo promedio por persona</label>
+        <input id="averagePrice" type='text' name="averagePrice" value="{{restaurant.averagePrice}}">
+        <label for="drinks">Bebidas en tu Restaurante</label>
 
-  <input type="submit" value="Guardar">
-</form>
+        {{#each restaurant.drinks as |drink|}}
+        {{drink.name}}
 
+        <a href="/auth/restaurant/{{../restaurant._id}}/drinks/{{this._id}}/delete">Delete</a>
+        {{/each}}
+
+        <label for="drinksadd">Bebidas que puedes agregar a tu carta</label>
+
+        {{#each drinks as |drink|}}
+        <input type="checkbox" name="drinks" value="{{drink._id}}">{{drink.name}}</input>
+        {{/each}}
+      </div>
+      <div class="col-4-md">
+        <label for="map">Utiliza el mapa para actualizar tu ubicación</label>
+        <input type="number" name="lng" id="lng" value="{{restaurant.lng}}" hidden>
+        <input type="number" name="lat" id="lat" value="{{restaurant.lat}}" hidden>
+        <div id='map' style='width: 400px; height: 300px;'></div>
+        </br>
+        <input type="submit" value="Guardar">
+      </div>
+
+
+    </form>
+  </div>
+</div>
 <script src="/javascripts/mapbox.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
