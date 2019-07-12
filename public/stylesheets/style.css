@@ -33,7 +33,9 @@ select {
   margin-left: 45%;
   margin-top: 10%;
   font-style: italic;
-  transition: 0.2s; }
+  transition: 0.2s;
+  border-color: #ca0f4d;
+  border-radius: 7%; }
 
 input:hover {
   color: #ca0f4d; }
