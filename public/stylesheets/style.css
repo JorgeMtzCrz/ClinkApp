@@ -4,10 +4,6 @@ body {
   text-align: center;
   font-size: 18px; }
 
-.navbar ul {
-  display: flex;
-  align-self: normal; }
-
 h1 {
   font-size: 2rem;
   margin-bottom: 15%; }
@@ -102,7 +98,11 @@ a {
 
 #map {
   display: flex;
-  align-self: flex-start;
   margin-left: 500px; }
+
+.navbar ul {
+  display: flex;
+  align-self: normal;
+  align-items: center; }
 
 /*# sourceMappingURL=style.css.map */

@@ -4,11 +4,6 @@ body {
     font-size: 18px;
 }
 
-.navbar ul {
-    display: flex;
-    align-self: normal;
-}
-
 h1 {
     font-size: 2rem;
     margin-bottom: 15%;
@@ -22,18 +17,6 @@ a {
     color: rgb(202, 15, 77);
 }
 
-// form {
-//   display: flex;
-//   justify-content: space-evenly;
-//   text-align: center;
-//   margin: 15%;
-// }
-// select {
-//   margin: 5%;
-//   background-color: rgb(202, 15, 77);
-//   color: whitesmoke;
-//   border-radius: 10%;
-// }
 .form-inline {
     color: rgb(202, 15, 77);
     margin: 5%;
@@ -137,6 +120,11 @@ a {
 
 #map {
     display: flex;
-    align-self: flex-start;
     margin-left: 500px;
+}
+
+.navbar ul {
+    display: flex;
+    align-self: normal;
+    align-items: center;
 }
