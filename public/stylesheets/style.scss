@@ -23,7 +23,10 @@ a {
 }
 
 form {
+  display: flex;
+  justify-content: space-evenly;
   text-align: center;
+  margin: 15%;
 }
 
 select {
@@ -60,7 +63,6 @@ input:hover {
   /* Volver a dar tamaño al texto */
   font-size: 32px;
   font-size: 2rem;
-
   color: #888;
 }
 
@@ -79,11 +81,11 @@ input:hover {
   text-align: center;
   display: flex;
   flex-direction: column;
-
   align-content: space-around;
   color: rgb(0, 0, 10);
   transition: 0.3s;
 }
+
 #first-view:hover {
   color: rgb(202, 15, 77);
 }
