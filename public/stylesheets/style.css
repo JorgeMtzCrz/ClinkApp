@@ -1,9 +1,55 @@
 @charset "UTF-8";
 body {
-  padding: 50px; }
+  width: 100vw;
+  height: 100vh; }
+
+nav {
+  display: flex;
+  align-content: stretch; }
+
+h1 {
+  display: flex;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 10%; }
+
+h2 {
+  font-size: 1.5rem; }
+
+h3 {
+  font-size: 1rem; }
 
 a {
   color: #ca0f4d; }
+
+form {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  margin: 15%; }
+
+select {
+  margin: 5%;
+  background-color: #ca0f4d;
+  color: whitesmoke;
+  border-radius: 10%; }
+
+#fiesta-form input,
+#coctel-form input,
+#acomp-form input {
+  display: flex;
+  background-color: whitesmoke;
+  margin-top: 15%;
+  margin-left: 45%;
+  font-style: italic;
+  transition: 0.2s; }
+
+input:hover {
+  color: #ca0f4d; }
+
+.logo {
+  display: flex;
+  align-content: space-around; }
 
 .ec-stars-wrapper a {
   text-decoration: none;
@@ -14,7 +60,7 @@ a {
   color: #888; }
 
 .ec-stars-wrapper:hover a {
-  color: #2782e4; }
+  color: #ca0f4d; }
 
 #fiesta-form,
 #coctel-form,
@@ -24,13 +70,26 @@ a {
 #first-view {
   text-align: center;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  align-content: space-around;
+  color: #00000a;
+  transition: 0.3s; }
+
+#first-view:hover {
+  color: #ca0f4d; }
 
 #first-view img {
-  width: 15%; }
+  width: 40%; }
+
+#coctel {
+  margin-top: 5%; }
 
 #restaurants {
   display: flex;
   justify-content: center; }
+
+.about {
+  text-align: center;
+  background-color: gainsboro; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,13 +1,12 @@
 <div class='card'>
 
-  <h3 class="card-title">{{this.name}}</h3>
-  <img class="card-img-top  rounded mx-auto d-block" src="{{this.imgPath}}" alt="{{this.imgName}}">
+  <h3 class="card-title">{{name}}</h3>
+  <img class="card-img-top  rounded mx-auto d-block" src="{{imgPath}}" alt="{{imgName}}">
 
 
-  <h3>{{this.drinks.name}}</h3>
-  <img class="card-img-top" src="{{this.drinks.imgPath}}" alt="{{this.drinks.imgName}}" width="200">
   <div class="card-body">
-    <p>{{this.drinks.description}}</p>
+    <h4>Precio por persona: {{averagePrice}}</h4>
+
 
     <div class="ec-stars-wrapper">
       <a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
@@ -16,5 +15,7 @@
       <a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
       <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
     </div>
-    <h4 id="location">Ubicación</h4>
+
+    <h4 id="location"><a href="/detalles/{{_id}}">Detalles </a> </h4>
+
   </div>

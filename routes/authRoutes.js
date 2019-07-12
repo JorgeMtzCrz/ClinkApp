@@ -3,6 +3,7 @@ const passport2 = require("passport");
 const router = express.Router();
 const passport = require('../config/passport')
 const uploadCloud = require('../config/cloudinary')
+const axios = require('axios')
 
 const {
     postSignup,
