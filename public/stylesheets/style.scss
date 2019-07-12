@@ -1,23 +1,21 @@
 body {
   padding: 50px;
+  text-align: center;
+  font-size: 18px;
 }
 
-nav {
+.navbar ul {
   display: flex;
-  align-content: stretch;
+  align-self: normal;
 }
+
 h1 {
-  display: flex;
-  text-align: center;
   font-size: 2rem;
-  margin-bottom: 10%;
+  margin-bottom: 15%;
 }
 
 h2 {
   font-size: 1.5rem;
-}
-h3 {
-  font-size: 1rem;
 }
 
 a {
@@ -25,10 +23,7 @@ a {
 }
 
 form {
-  display: flex;
-  justify-content: space-evenly;
   text-align: center;
-  margin: 15%;
 }
 
 select {
@@ -42,10 +37,10 @@ select {
 #coctel-form input,
 #acomp-form input {
   display: flex;
-
+  background-size: 20%;
   background-color: whitesmoke;
-  margin-top: 15%;
   margin-left: 45%;
+  margin-top: 10%;
   font-style: italic;
   transition: 0.2s;
 }
@@ -77,6 +72,7 @@ input:hover {
 #coctel-form,
 #acomp-form {
   display: none;
+  text-align: center;
 }
 
 #first-view {
@@ -106,6 +102,12 @@ input:hover {
 }
 
 .about {
-  text-align: center;
-  background-color: gainsboro;
+  display: flex;
+  justify-content: center;
+  text-align: justify;
+}
+
+.about-title {
+  margin: 8%;
+  color: rgb(202, 15, 77);
 }

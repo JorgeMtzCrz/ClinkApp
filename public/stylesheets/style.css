@@ -1,31 +1,25 @@
 @charset "UTF-8";
 body {
-  padding: 50px; }
+  padding: 50px;
+  text-align: center;
+  font-size: 18px; }
 
-nav {
+.navbar ul {
   display: flex;
-  align-content: stretch; }
+  align-self: normal; }
 
 h1 {
-  display: flex;
-  text-align: center;
   font-size: 2rem;
-  margin-bottom: 10%; }
+  margin-bottom: 15%; }
 
 h2 {
   font-size: 1.5rem; }
-
-h3 {
-  font-size: 1rem; }
 
 a {
   color: #ca0f4d; }
 
 form {
-  display: flex;
-  justify-content: space-evenly;
-  text-align: center;
-  margin: 15%; }
+  text-align: center; }
 
 select {
   margin: 5%;
@@ -37,9 +31,10 @@ select {
 #coctel-form input,
 #acomp-form input {
   display: flex;
+  background-size: 20%;
   background-color: whitesmoke;
-  margin-top: 15%;
   margin-left: 45%;
+  margin-top: 10%;
   font-style: italic;
   transition: 0.2s; }
 
@@ -64,7 +59,8 @@ input:hover {
 #fiesta-form,
 #coctel-form,
 #acomp-form {
-  display: none; }
+  display: none;
+  text-align: center; }
 
 #first-view {
   text-align: center;
@@ -86,5 +82,14 @@ input:hover {
 #restaurants {
   display: flex;
   justify-content: center; }
+
+.about {
+  display: flex;
+  justify-content: center;
+  text-align: justify; }
+
+.about-title {
+  margin: 8%;
+  color: #ca0f4d; }
 
 /*# sourceMappingURL=style.css.map */
