@@ -16,8 +16,7 @@ const {
 
 mongoose
     .connect(
-        //"mongodb+srv://clink:qwer@cluster0-liwfy.mongodb.net/test?retryWrites=true&w=majority",
-        'mongodb://localhost/project2-a', {
+        "mongodb+srv://clink:qwer@cluster0-liwfy.mongodb.net/test?retryWrites=true&w=majority", {
             useNewUrlParser: true
         }
     )

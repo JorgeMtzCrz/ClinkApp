@@ -7,16 +7,16 @@
     href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css'
     type='text/css' />
 </head>
-<div class="row-center">
-  <div class="col-2-md">
-    <form class="form-inline" action="/restaurant/{{restaurant._id}}/edit" method="POST">
-      <div class="col-6-sm">
+<div class="col-12-md">
+  <div class="col-6-md">
+    <form action="/restaurant/{{restaurant._id}}/edit" method="POST">
+      <div class="col-6-md">
         <label for="name">Nombre</label>
         <input type="text" name="name" placeholder="name" value="{{restaurant.name}}">
 
         </br>
         <label for="giro">Giro</label>
-        <select class="custom-select" name="giro" id="tgiro">
+        <select name="giro" id="giro">
           <option value="" selected disabled>Choose one</option>
           <option value="Restaurant">Restaurante</option>
           <option value="Bar">Bar</option>
@@ -24,24 +24,26 @@
           <option value="Cantina">Cantina</option>
         </select>
       </div>
-      <div class="col-4-sm">
+      <div class="col-6-md">
         <label for="averagePrice">Consumo promedio por persona</label>
-        <input id="averagePrice" type='text' name="averagePrice" value="{{restaurant.averagePrice}}">
-        <label for="drinks">Bebidas en tu Restaurante</label>
 
+        <input id="averagePrice" type='text' name="averagePrice" value="{{restaurant.averagePrice}}">
+        <br />
+        <label for="drinks">Bebidas en tu Restaurante:</label>
+        <br />
         {{#each restaurant.drinks as |drink|}}
         {{drink.name}}
 
         <a href="/auth/restaurant/{{../restaurant._id}}/drinks/{{this._id}}/delete">Delete</a>
         {{/each}}
-
+        <br />
         <label for="drinksadd">Bebidas que puedes agregar a tu carta</label>
-
+        <br />
         {{#each drinks as |drink|}}
         <input type="checkbox" name="drinks" value="{{drink._id}}">{{drink.name}}</input>
         {{/each}}
       </div>
-      <div class="col-4-md">
+      <div class="col-6-md">
         <label for="map">Utiliza el mapa para actualizar tu ubicación</label>
         <input type="number" name="lng" id="lng" value="{{restaurant.lng}}" hidden>
         <input type="number" name="lat" id="lat" value="{{restaurant.lat}}" hidden>
