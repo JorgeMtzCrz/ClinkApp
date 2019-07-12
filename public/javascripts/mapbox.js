@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: [-99.1269, 19.4978],
-        zoom: 4
+        zoom: 4,
+        logoIsHidden: true
     })
 
     const geocoder = new MapboxGeocoder({

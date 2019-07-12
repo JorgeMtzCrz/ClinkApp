@@ -44,7 +44,7 @@ exports.postLogin = (req, res, next) => {
         req.login(user, err => {
             if (err) return res.send('Fallo', err)
             req.app.locals.user = user
-            if (user.role === 'admin') return res.redirect('/admin')
+            if (user.role === 'admin') return res.redirect('perfil')
             else return res.redirect('perfil')
         })
     })(req, res, next)
@@ -90,13 +90,6 @@ exports.postRestaurant = (req, res, next) => {
         .catch(err => next(err))
 }
 exports.getOneRest = async(req, res, next) => {
-    // const restaurant = Restaurant.findById(req.params.id, (err, restaurants) => {
-    //     Drink.populate(restaurant, {
-    //         path: 'drinks'
-    //     }, function(err, restaurant) {
-    //         res.render('auth/restaurant', restaurant)
-    //     })
-    // })
     const restaurant = await Restaurant.findById(req.params.id).populate('drinks')
     res.render('auth/restaurant', restaurant)
 }

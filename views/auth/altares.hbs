@@ -10,13 +10,13 @@
 <div class="col-12-md">
   <div class='col-6-md'>
     <h2>Dar de alta un Restaurante</h2>
-    <form class="form-inline" action="/auth/altares" method="POST" enctype="multipart/form-data" novalidate>
+    <form action="/auth/altares" method="POST" enctype="multipart/form-data" novalidate>
       <label for="name">Nombre</label>
       <input id="name" type="text" name="name">
-
+      <br />
       <label for="giro">Giro</label>
-      <select class="custom-select" name="giro" id="giro">
-        <option value="" selected disabled>Choose one</option>
+      <select name="giro" id="giro">
+        <option value="" selected disabled>Elige uno</option>
         <option value="Restaurant">Restaurante</option>
         <option value="Bar">Bar</option>
         <option value="Antro">Antro</option>
@@ -35,13 +35,11 @@
     <input type="file" name="photo" id="photo">
     <br />
     <label for="Drinks">Agrega las bebidas que ofrece tu Restaurante</label>
-
   </div>
 </div>
 {{#each drinks as |drink|}}
 <input type="checkbox" name="drinks" value="{{drink._id}}">{{drink.name}}</input>
 {{/each}}
-
 
 {{#if message }}
 <div class="error-message">{{ message }}</div>
@@ -51,9 +49,5 @@
 </form>
 
 
-{{!-- <p class="account-message">
-  ¿Ya tienes tu cuenta?
-  <a href="/auth/login">Login</a>
-</p> --}}
 <script src="/javascripts/mapbox.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>

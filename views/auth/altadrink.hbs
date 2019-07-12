@@ -1,14 +1,11 @@
-<h2>Actualiza tu carta de bebidas</h2>
-<form class="form-inline" action="/auth/drinks" method="POST" enctype="multipart/form-data" novalidate>
+<h2>Dar de alta una bebida</h2>
+<form action="/auth/drinks" method="POST" enctype="multipart/form-data" novalidate>
   <label for="name">Nombre</label>
   <input id="name" type="text" name="name">
   <br />
-  {{!-- <label for="price">Precio</label>
-  <input type="number" name="precio" placeholder="Solo numeros"> --}}
-  <br />
   <label for="alcohol">Tipo de alcohol</label>
-  <select class="custom-select" name="alcohol" id="alcohol">
-    <option value="" selected disabled>Choose one</option>
+  <select name="alcohol" id="alcohol">
+    <option value="" selected disabled>Elige uno</option>
     <option value="Vodka">Vodka</option>
     <option value="Cerveza">Cerveza</option>
     <option value="Tequila">Tequila</option>
@@ -18,8 +15,8 @@
   </select>
   <br />
   <label for="typeDrink">Tipo de trago</label>
-  <select class="custom-select" name="typeDrink" id="typeDrink">
-    <option value="" selected disabled>Choose one</option>
+  <select name="typeDrink" id="typeDrink">
+    <option value="" selected disabled>Elige uno</option>
     <option value="Cocktail">Cocktail</option>
     <option value="Solo">Solo</option>
     <option value="Mix">Mix</option>

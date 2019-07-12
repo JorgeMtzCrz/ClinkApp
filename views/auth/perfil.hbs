@@ -1,17 +1,18 @@
-<div class="card">
-  <h1 class="perfil-title">Hola {{user.name}}</h1>
-
-  <h2>Tus Restaurantes</h2>
-  <div class="card-title">
-    {{#each restaurants as |rest|}}
-    <h3>{{rest.name}}</h3>
+<h1 class="perfil-title">Hola {{user.name}}</h1>
+<h2>Tus Restaurantes</h2>
+<div id="cardPerfil">
+  {{#each restaurants as |rest|}}
+  <div class="card" id="cardSingle" style="width: 25rem;">
+    <div class="card-title">
+      <h3>{{rest.name}}</h3>
+      <img id="imgPf" class='card-img-top rounded mx-auto d-block' src="{{rest.imgPath}}" alt="{{rest.imgName}}"
+        width="200">
+      <div class="col-4-sm">
+        <a href="restaurant/{{rest._id}}">| Detalles |</a>
+        <a href="/auth/restaurant/{{rest._id}}/edit">| Editar |</a>
+        <a href="/auth/restaurant/{{rest._id}}/delete">| Eliminar |</a>
+      </div>
+    </div>
   </div>
-  <img class='card-img-top rounded mx-auto d-block' src="{{rest.imgPath}}" alt="{{rest.imgName}}" width="200">
-  <div class="col-4-sm">
-    <a href="restaurant/{{rest._id}}">Ir al lugar</a>
-    <a href="/auth/restaurant/{{rest._id}}/edit">Editar</a>
-    <a href="/auth/restaurant/{{rest._id}}/delete">Delete</a>
-  </div>
-
+  {{/each}}
 </div>
-{{/each}}

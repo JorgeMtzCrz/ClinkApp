@@ -50,12 +50,12 @@ a {
   flex-direction: column;
   align-content: space-around;
   color: rgb(0, 0, 10);
-  //transition: 0.3s;
+  transition: 0.3s;
 }
 
-// #first-view:hover {
-//   color: rgb(202, 15, 77);
-// }
+#first-view:hover {
+  color: rgb(202, 15, 77);
+}
 
 #first-view img {
   width: 40%;
@@ -81,6 +81,38 @@ a {
   color: rgb(202, 15, 77);
 }
 
+#drinkCard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#imagenCard {
+  width: 16rem;
+  height: 16rem;
+}
+
+#cardSingle {
+  margin-right: 20px;
+}
+
 .perfil-title {
-  margin-bottom: 5%;
+  margin-bottom: 20px;
+}
+
+#cardPerfil {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#imgPf {
+  width: 25rem;
+  height: 25rem;
+}
+
+#map {
+  display: flex;
+  align-self: flex-start;
+  margin-left: 500px;
 }

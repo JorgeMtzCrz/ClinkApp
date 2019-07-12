@@ -42,7 +42,11 @@ a {
   display: flex;
   flex-direction: column;
   align-content: space-around;
-  color: #00000a; }
+  color: #00000a;
+  transition: 0.3s; }
+
+#first-view:hover {
+  color: #ca0f4d; }
 
 #first-view img {
   width: 40%; }
@@ -63,7 +67,33 @@ a {
   margin: 8%;
   color: #ca0f4d; }
 
+#drinkCard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+#imagenCard {
+  width: 16rem;
+  height: 16rem; }
+
+#cardSingle {
+  margin-right: 20px; }
+
 .perfil-title {
-  margin-bottom: 5%; }
+  margin-bottom: 20px; }
+
+#cardPerfil {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+#imgPf {
+  width: 25rem;
+  height: 25rem; }
+
+#map {
+  display: flex;
+  align-self: flex-start;
+  margin-left: 500px; }
 
 /*# sourceMappingURL=style.css.map */

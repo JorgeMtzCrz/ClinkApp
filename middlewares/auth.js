@@ -5,7 +5,7 @@ exports.isLoggedIn = (req, res, next) => {
 
 exports.isAdmin = (req, res, next) => {
     if (req.user.role === "admin") return next();
-    return res.redirect('perfil');
+    return res.redirect('/auth/perfil');
 };
 
 exports.isAuth = (req, res, next) => {
