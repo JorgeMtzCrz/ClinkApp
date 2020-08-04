@@ -1,14 +1,62 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+nav {
+  display: flex;
+  align-content: stretch;
+}
+h1 {
+  display: flex;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 10%;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1rem;
 }
 
 a {
-  color: #00b7ff;
+  color: rgb(202, 15, 77);
 }
 
-.ec-stars-wrapper {
-  display: inline-block;
+form {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  margin: 15%;
+}
+
+select {
+  margin: 5%;
+  background-color: rgb(202, 15, 77);
+  color: whitesmoke;
+  border-radius: 10%;
+}
+
+#fiesta-form input,
+#coctel-form input,
+#acomp-form input {
+  display: flex;
+
+  background-color: whitesmoke;
+  margin-top: 15%;
+  margin-left: 45%;
+  font-style: italic;
+  transition: 0.2s;
+}
+
+input:hover {
+  color: rgb(202, 15, 77);
+}
+
+.logo {
+  display: flex;
+  align-content: space-around;
 }
 
 .ec-stars-wrapper a {
@@ -22,5 +70,42 @@ a {
 }
 
 .ec-stars-wrapper:hover a {
-  color: rgb(39, 130, 228);
+  color: rgb(202, 15, 77);
+}
+
+#fiesta-form,
+#coctel-form,
+#acomp-form {
+  display: none;
+}
+
+#first-view {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  align-content: space-around;
+  color: rgb(0, 0, 10);
+  transition: 0.3s;
+}
+#first-view:hover {
+  color: rgb(202, 15, 77);
+}
+
+#first-view img {
+  width: 40%;
+}
+
+#coctel {
+  margin-top: 5%;
+}
+
+#restaurants {
+  display: flex;
+  justify-content: center;
+}
+
+.about {
+  text-align: center;
+  background-color: gainsboro;
 }

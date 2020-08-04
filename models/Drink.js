@@ -4,28 +4,22 @@ const plm = require("passport-local-mongoose");
 const drinkSchema = new Schema(
   {
     name: String,
-    price: Number,
-    description: String,
-    restaurantId: {
-<<<<<<< HEAD
-      type: Schema.Types.ObjectId,
-      ref: "Restaurant"
-=======
-        type: Schema.Types.ObjectId,
-        ref: "Restaurant"
->>>>>>> 622092f94645efb18bbd2c3ec41b53ca44601cc6
+    alcohol: {
+      type: String,
+      enum: ["Vodka", "Cerveza", "Tequila", "Whisky", "Ron", "Vino"]
     },
+    typeDrink: {
+      type: String,
+      enum: ["Cocktail", "Solo", "Mix"]
+    },
+    description: String,
     imgPath: String,
     imgName: String
   },
   {
     timestamps: true,
     versionKey: false
-<<<<<<< HEAD
   }
 );
-=======
-})
 
-module.exports = model('Drink', drinkSchema)
->>>>>>> 622092f94645efb18bbd2c3ec41b53ca44601cc6
+module.exports = model("Drink", drinkSchema);

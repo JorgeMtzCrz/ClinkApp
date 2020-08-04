@@ -1,0 +1,13 @@
+<h1>Hola {{user.name}}</h1>
+
+
+<h2>Tus Restaurantes</h2>
+{{#each restaurants as |rest|}}
+<h3>{{rest.name}}</h3>
+<img src="{{rest.imgPath}}" alt="{{rest.imgName}}" width="400">
+<br />
+<a href="restaurant/{{rest._id}}">Ir al lugar</a>
+<a href="/auth/restaurant/{{rest._id}}/edit">Editar</a>
+<a href="/auth/restaurant/{{rest._id}}/delete">Delete</a>
+
+{{/each}}

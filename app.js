@@ -10,11 +10,15 @@ const logger = require("morgan");
 const path = require("path");
 const passport = require("./config/passport");
 const session = require("express-session");
+const { checkLoggedUser } = require("./middlewares/auth");
 
 mongoose
-  .connect("mongodb://localhost/project2-a", {
-    useNewUrlParser: true
-  })
+  .connect(
+    "mongodb+srv://clink:qwer@cluster0-liwfy.mongodb.net/test?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true
+    }
+  )
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -28,6 +32,8 @@ const app_name = require("./package.json").name;
 const debug = require("debug")(
   `${app_name}:${path.basename(__filename).split(".")[0]}`
 );
+
+hbs.registerPartials(`${__dirname}/views/partials`);
 
 const app = express();
 
@@ -76,6 +82,6 @@ app.locals.title = "Clink!";
 app.use("/auth", require("./routes/authRoutes"));
 const index = require("./routes/index");
 app.use("/", index);
-app.use("/auth", require("./routes/authRoutes"));
+app.use("/", checkLoggedUser, require("./routes/authRoutes"));
 
 module.exports = app;

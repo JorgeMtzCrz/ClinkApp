@@ -1,0 +1,9 @@
+<div class='card'>
+  {{#each restaurant.drinks as |drink|}}
+  <h3>{{drink.name}}</h3>
+  <img class="card-img-top" src="{{drink.imgPath}}" alt="{{drink.imgName}}" width="200">
+  <div class="card-body">
+    <p>{{drink.description}}</p>
+    {{/each}}
+  </div>
+</div>
